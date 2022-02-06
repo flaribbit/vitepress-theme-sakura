@@ -2,58 +2,21 @@
   <Header />
   <aside />
   <main>
-    <div class="top">
-      <div class="wave1"></div>
-      <div class="wave2"></div>
-      <div class="focus-info">
-        <div class="glitch">Hello</div>
-        <div class="social"></div>
-      </div>
-    </div>
+    <Banner />
     <Content class="content" />
   </main>
 </template>
 
 <script setup lang="ts">
 import Header from './Header.vue'
+import Banner from './Banner.vue'
 </script>
-
-<style scoped>
-.glitch {
-  font-size: 80px;
-}
-.focus-info {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-block;
-}
-.top {
-  background-image: url(https://api.2heng.xin/cover/);
-  background-size: cover;
-  height: 100vh;
-}
-.wave1 {
-  background: url(./assets/wave1.png) repeat-x;
-  position: absolute;
-  width: 400%;
-  height: 65px;
-  bottom: 0;
-}
-.wave2 {
-  background: url(./assets/wave2.png) repeat-x;
-  position: absolute;
-  width: 400%;
-  height: 80px;
-  bottom: 0;
-}
-</style>
 
 <style>
 body {
   margin: 0;
   padding: 0;
+  font-size: 14px;
   overflow-x: hidden;
 
   --color-accent: #fe9600;

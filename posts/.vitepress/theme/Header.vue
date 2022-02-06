@@ -16,15 +16,23 @@
         </ul>
       </span>
     </span>
-    <span class="avatar"></span>
-    <span class="search"></span>
+    <span>
+      <span class="search">
+        <i class="fa fa-search"></i>
+      </span>
+    </span>
   </header>
 </template>
 
 <script setup lang="ts">
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/css/solid.css'
-const menu = [{
+interface MenuItem {
+  icon: string,
+  name: string,
+  url: string,
+}
+const menu: MenuItem[] = [{
   icon: 'fa-home',
   name: '首页',
   url: '/',
@@ -45,8 +53,13 @@ const menu = [{
 
 <style scoped>
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
   width: 100%;
   position: fixed;
+  background: #fffe;
 }
 .menu ul {
   margin: 0;
