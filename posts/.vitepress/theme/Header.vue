@@ -44,6 +44,10 @@ const menu = [{
 </script>
 
 <style scoped>
+header {
+  width: 100%;
+  position: fixed;
+}
 .menu ul {
   margin: 0;
   padding: 0;
@@ -55,5 +59,8 @@ const menu = [{
 }
 a {
   color: var(--color-gray);
+}
+a:hover {
+  color: var(--color-accent);
 }
 </style>
