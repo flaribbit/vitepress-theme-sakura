@@ -11,9 +11,10 @@ defineProps({
 })
 </script>
 
-<style scoped>
+<style>
 .glitch {
-  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  position: relative;
   font-weight: bold;
   font-size: 80px;
   color: #fff;
