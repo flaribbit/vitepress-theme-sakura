@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "dev": "vitepress dev posts",
+    "build": "vitepress build posts"
+  },
+  "name": "vitepress-theme-sakura",
+  "version": "0.0.1",
+  "description": "sakura",
+  "main": "index.ts",
+  "keywords": [
+    "vitepress",
+    "theme",
+    "sakura"
+  ],
+  "author": "flaribbit",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "vitepress": "^0.21.6"
+  },
+  "devDependencies": {
+    "vue": "^3"
+  }
+}
