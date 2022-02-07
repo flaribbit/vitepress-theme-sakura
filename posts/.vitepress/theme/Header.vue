@@ -43,6 +43,7 @@ header {
   width: 100%;
   position: fixed;
   background: #fffe;
+  z-index: 100;
 }
 .menu {
   ul {
