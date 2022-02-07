@@ -25,8 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import '@fortawesome/fontawesome-free/css/all.css'
-import '@fortawesome/fontawesome-free/css/solid.css'
 interface MenuItem { icon: string, name: string, url: string }
 const menu: MenuItem[] = [
   { icon: 'fa-home', name: '首页', url: '/' },
