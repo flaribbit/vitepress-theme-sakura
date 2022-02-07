@@ -3,8 +3,8 @@
   <Header />
   <aside />
   <main>
-    <Banner />
-    <BlogList />
+    <Banner v-if="isIndex" />
+    <BlogList v-if="isIndex" />
     <Content class="content" />
   </main>
 </template>
@@ -15,9 +15,15 @@ import Banner from './Banner.vue'
 import BlogList from './BlogList.vue'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/css/regular.css'
+
+import { computed } from 'vue'
+import { useRoute } from 'vitepress'
 const fonts = [
   "Noto Serif SC"
 ].map(encodeURIComponent).join("|")
+const route = useRoute()
+const isIndex = computed(() => route.path.replace(/index.html$/, '') === '/')
+
 </script>
 
 <style lang="scss">
@@ -37,7 +43,6 @@ body {
   box-sizing: border-box;
 }
 a {
-  color: var(--color-accent);
   text-decoration: none;
 }
 ::-webkit-scrollbar {

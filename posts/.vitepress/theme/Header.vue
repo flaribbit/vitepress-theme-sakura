@@ -36,13 +36,14 @@ const menu: MenuItem[] = [
 
 <style lang="scss">
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
-  width: 100%;
-  position: fixed;
-  background: #fffe;
+  background: rgba(255, 255, 255, 0.9);
   z-index: 100;
 }
 .menu {
@@ -57,6 +58,7 @@ header {
   }
   a {
     color: var(--color-gray);
+    transition: color 0.2s ease-out;
     &:hover {
       color: var(--color-accent);
     }
