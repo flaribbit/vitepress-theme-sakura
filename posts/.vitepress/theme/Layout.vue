@@ -12,7 +12,7 @@ import Header from './Header.vue'
 import Banner from './Banner.vue'
 </script>
 
-<style>
+<style lang="scss">
 body {
   margin: 0;
   padding: 0;

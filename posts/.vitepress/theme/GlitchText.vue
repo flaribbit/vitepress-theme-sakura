@@ -11,38 +11,40 @@ defineProps({
 })
 </script>
 
-<style>
+<style lang="scss">
+@mixin glitch-common {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  clip: rect(0, 0, 0, 0);
+}
 .glitch {
   display: block;
   position: relative;
   font-weight: bold;
   font-size: 80px;
   color: #fff;
-}
-.glitch:before,
-.glitch:after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0);
-  clip: rect(0, 0, 0, 0);
-}
-.glitch:hover:before {
-  text-shadow: 4px 0 #ff3f1a;
-  animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
-}
-.glitch:before {
-  left: -1px;
-  text-shadow: 1px 0 #ff3f1a;
-}
-.glitch:hover:after {
-  text-shadow: -4px 0 #00a7e0;
-  animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
-}
-.glitch:after {
-  left: 1px;
-  text-shadow: -1px 0 #00a7e0;
+  &:before {
+    @include glitch-common;
+    left: -1px;
+    text-shadow: 1px 0 #ff3f1a;
+  }
+  &:after {
+    @include glitch-common;
+    left: 1px;
+    text-shadow: -1px 0 #00a7e0;
+  }
+  &:hover {
+    &:before {
+      text-shadow: 4px 0 #ff3f1a;
+      animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
+    }
+    &:after {
+      text-shadow: -4px 0 #00a7e0;
+      animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
+    }
+  }
 }
 @keyframes glitch-loop-1 {
   0% {

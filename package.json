@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "sass": "^1.49.7",
     "vitepress": "^0.21.6"
   },
   "devDependencies": {

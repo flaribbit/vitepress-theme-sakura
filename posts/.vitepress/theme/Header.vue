@@ -27,31 +27,16 @@
 <script setup lang="ts">
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/css/solid.css'
-interface MenuItem {
-  icon: string,
-  name: string,
-  url: string,
-}
-const menu: MenuItem[] = [{
-  icon: 'fa-home',
-  name: '首页',
-  url: '/',
-}, {
-  icon: 'fa-archive',
-  name: '归档',
-  url: '/archive',
-}, {
-  icon: 'fa-list-ul',
-  name: '清单',
-  url: '/list',
-}, {
-  icon: 'fa-leaf',
-  name: '关于',
-  url: '/about',
-}]
+interface MenuItem { icon: string, name: string, url: string }
+const menu: MenuItem[] = [
+  { icon: 'fa-home', name: '首页', url: '/' },
+  { icon: 'fa-archive', name: '归档', url: '/archive' },
+  { icon: 'fa-list-ul', name: '清单', url: '/list' },
+  { icon: 'fa-leaf', name: '关于', url: '/about' }
+]
 </script>
 
-<style scoped>
+<style lang="scss">
 header {
   display: flex;
   align-items: center;
@@ -61,19 +46,21 @@ header {
   position: fixed;
   background: #fffe;
 }
-.menu ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.menu li {
-  margin: 0 12px;
-  display: inline;
-}
-a {
-  color: var(--color-gray);
-}
-a:hover {
-  color: var(--color-accent);
+.menu {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin: 0 12px;
+    display: inline;
+  }
+  a {
+    color: var(--color-gray);
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
 }
 </style>

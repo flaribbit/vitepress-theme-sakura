@@ -29,7 +29,7 @@ const social = [
 ]
 </script>
 
-<style scoped>
+<style lang="scss">
 .banner {
   background-image: url(https://api.2heng.xin/cover/);
   background-size: cover;
@@ -37,47 +37,47 @@ const social = [
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.info {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.wave1 {
-  background: url(./assets/wave1.png) repeat-x;
-  position: absolute;
-  width: 400%;
-  height: 65px;
-  bottom: 0;
-}
-.wave2 {
-  background: url(./assets/wave2.png) repeat-x;
-  position: absolute;
-  width: 400%;
-  height: 80px;
-  bottom: 0;
-}
-.banner .box {
-  display: inline-block;
-  width: 600px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 16px;
-  margin-top: 16px;
-}
-.banner .text {
-  text-align: center;
-  font-size: 16px;
-}
-.contact {
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-  padding-bottom: 12px;
-}
-.contact i {
-  padding: 6px;
+  .wave1 {
+    background: url(./assets/wave1.png) repeat-x;
+    position: absolute;
+    width: 400%;
+    height: 65px;
+    bottom: 0;
+  }
+  .wave2 {
+    background: url(./assets/wave2.png) repeat-x;
+    position: absolute;
+    width: 400%;
+    height: 80px;
+    bottom: 0;
+  }
+  .info {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .box {
+    display: inline-block;
+    width: 600px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    margin-top: 16px;
+  }
+  .text {
+    text-align: center;
+    font-size: 16px;
+  }
+  .contact {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    padding-bottom: 12px;
+    i {
+      padding: 6px;
+    }
+  }
 }
 </style>
