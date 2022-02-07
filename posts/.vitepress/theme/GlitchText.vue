@@ -24,7 +24,7 @@ defineProps({
   position: relative;
   font-weight: bold;
   font-size: 80px;
-  color: #fff;
+  color: white;
   &:before {
     @include glitch-common;
     left: -1px;
