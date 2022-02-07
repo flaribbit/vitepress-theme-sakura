@@ -11,7 +11,9 @@
           <i class="fa fa-quote-right"></i>
         </p>
         <div class="contact">
-          <i :class="['fab', s.icon]" v-for="s in social"></i>
+          <a :href="s.url" v-for="s in social">
+            <i :class="['fab', s.icon]"></i>
+          </a>
         </div>
       </span>
     </div>
@@ -75,8 +77,9 @@ const social = [
     justify-content: center;
     font-size: 24px;
     padding-bottom: 12px;
-    i {
-      padding: 6px;
+    a {
+      color: white;
+      margin: 6px;
     }
   }
 }
