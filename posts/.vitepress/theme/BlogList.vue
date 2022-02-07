@@ -13,6 +13,12 @@
           {{ b.view }}阅读
         </div>
         <div class="content">{{ b.content }}</div>
+        <div class="tags">
+          <a v-for="t in b.tag" href="/">
+            <i class="fa fa-tag"></i>
+            {{ t }}
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -21,10 +27,10 @@
 <script setup lang="ts">
 const content = "Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。"
 const blogs = [
-  { title: 'Vue 框架', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, content: content },
-  { title: 'Hello World2', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, content: content },
-  { title: 'Hello World3', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, content: content },
-  { title: 'Hello World4', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, content: content },
+  { title: 'Vue 框架', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, tag: ["测试", "vue"], content: content },
+  { title: 'Hello World2', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, tag: ["测试"], content: content },
+  { title: 'Hello World3', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, tag: ["测试"], content: content },
+  { title: 'Hello World4', url: '/hello-world', date: '2020-01-01', view: 0, comment: 0, tag: ["测试"], content: content },
 ]
 </script>
 
@@ -52,6 +58,13 @@ const blogs = [
   .content {
     font-size: 16px;
     padding: 20px 0;
+  }
+  .tags a {
+    padding-right: 8px;
+    color: var(--color-gray);
+    &:hover {
+      color: var(--color-accent);
+    }
   }
 }
 </style>
