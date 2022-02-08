@@ -5,13 +5,14 @@
   <main>
     <Banner v-if="isIndex" />
     <BlogList v-if="isIndex" />
-    <Content class="content" />
+    <Article />
   </main>
 </template>
 
 <script setup lang="ts">
 import Header from './Header.vue'
 import Banner from './Banner.vue'
+import Article from './Article.vue'
 import BlogList from './BlogList.vue'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/css/regular.css'
