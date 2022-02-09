@@ -10,6 +10,7 @@ module.exports = {
   watch: '../*.md',
   load(asFeed = false) {
     const postDir = path.resolve(__dirname, '..')
+    checkFile(path.join(postDir, 'tags.md'), '')
     return fs
       .readdirSync(postDir)
       .filter((file) => file.endsWith('.md'))
@@ -36,6 +37,7 @@ function getPost(file, postDir, asFeed = false) {
     title: data.title,
     href: `/${file.replace(/\.md$/, '.html')}`,
     date: formatDate(data.date || timestamp),
+    tags: data.tags,
     excerpt: md.render(excerpt)
   }
   if (asFeed) {
@@ -56,4 +58,11 @@ function formatDate(date) {
     date = new Date(date)
   }
   return date.toLocaleDateString('sv-SE')
+}
+
+function checkFile(file, content) {
+  if (!fs.existsSync(file)) {
+    console.log(`${file} not found, creating new file`)
+    fs.writeFileSync(file, content)
+  }
 }

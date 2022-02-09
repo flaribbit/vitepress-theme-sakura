@@ -16,7 +16,7 @@
         </div> -->
         <div class="content" v-html="p.excerpt"></div>
         <div class="tags">
-          <a v-for="t in tags" :href="'/tags?q=' + t">
+          <a v-for="t in p.tags" :href="'/tags?q=' + t">
             <i class="fa fa-tag"></i>
             {{ t }}
           </a>
@@ -29,7 +29,6 @@
 <script setup lang="ts">
 import { data as posts } from '../posts.data'
 console.log(posts)
-const tags = ['啊啊啊', '还不支持tag']
 </script>
 
 <style lang="scss">

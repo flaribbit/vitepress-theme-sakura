@@ -1,5 +1,7 @@
 ---
 title: What is VitePress?
+date: 2022-01-01
+tags: [vue, vue3, vitepress]
 ---
 
 VitePress is [VuePress](https://vuepress.vuejs.org/)' little brother, built on top of [Vite](https://github.com/vitejs/vite).
