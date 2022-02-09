@@ -1,5 +1,4 @@
 <template>
-  <link rel="stylesheet" :href="'https://fonts.googleapis.com/css?family=' + fonts" />
   <Header />
   <aside />
   <main>
@@ -19,9 +18,6 @@ import '@fortawesome/fontawesome-free/css/regular.css'
 
 import { computed } from 'vue'
 import { useRoute } from 'vitepress'
-const fonts = [
-  "Noto Serif SC"
-].map(encodeURIComponent).join("|")
 const route = useRoute()
 const isIndex = computed(() => route.path.replace(/index.html$/, '') === '/')
 
