@@ -35,7 +35,7 @@ function getPost(file, postDir, asFeed = false) {
   const post = {
     title: data.title,
     href: `/${file.replace(/\.md$/, '.html')}`,
-    date: formatDate(data.date),
+    date: formatDate(data.date || timestamp),
     excerpt: md.render(excerpt)
   }
   if (asFeed) {
@@ -55,13 +55,5 @@ function formatDate(date) {
   if (!(date instanceof Date)) {
     date = new Date(date)
   }
-  date.setUTCHours(12)
-  return {
-    time: +date,
-    string: date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-  }
+  return date.toLocaleDateString('sv-SE')
 }

@@ -10,10 +10,10 @@
         <a :href="p.href">
           <div class="title">{{ p.title }}</div>
         </a>
-        <div class="view">
+        <!-- <div class="view">
           <i class="fa fa-eye"></i>
           {{ 114514 }} 阅读
-        </div>
+        </div> -->
         <div class="content" v-html="p.excerpt"></div>
         <div class="tags">
           <a v-for="t in tags" :href="'/tags?q=' + t">
@@ -46,7 +46,6 @@ const tags = ['啊啊啊', '还不支持tag']
   }
   .card {
     color: var(--color-gray);
-    height: 300px;
     margin: 20px 0;
     padding: 24px;
     border-radius: 10px;
@@ -64,11 +63,6 @@ const tags = ['啊啊啊', '还不支持tag']
     &:hover {
       color: var(--color-accent);
     }
-  }
-  .content {
-    margin: 20px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   .tags a {
     margin-right: 8px;
