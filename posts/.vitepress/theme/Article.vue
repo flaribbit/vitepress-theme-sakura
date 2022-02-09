@@ -46,5 +46,47 @@ const view = 114514
 .content {
   max-width: 800px;
   margin: auto;
+  color: #02111d;
+  hr {
+    border: none;
+    border-bottom: 1px dashed #ddd;
+  }
+  a {
+    color: #e58700;
+    position: relative;
+    transition: color 0.2s ease-out;
+    &.header-anchor {
+      float: left;
+      margin-top: 0.125em;
+      margin-left: -0.87em;
+      padding-right: 0.23em;
+      font-size: 0.85em;
+      opacity: 0;
+    }
+    &:hover {
+      color: var(--color-accent);
+      &:after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      transform: scaleX(0);
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--color-accent);
+      transition: transform 0.2s ease-out;
+      transform-origin: right;
+    }
+  }
+  @for $i from 1 through 6 {
+    h#{$i}:hover .header-anchor {
+      opacity: 1;
+    }
+  }
 }
 </style>
