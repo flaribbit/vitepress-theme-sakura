@@ -2,9 +2,11 @@
   <Header />
   <aside />
   <main>
-    <Banner v-if="isIndex" />
-    <BlogList v-if="isIndex" />
-    <Article />
+    <template v-if="isIndex">
+      <Banner />
+      <BlogList />
+    </template>
+    <Article v-else />
   </main>
 </template>
 
