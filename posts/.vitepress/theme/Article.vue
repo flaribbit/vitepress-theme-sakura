@@ -10,11 +10,66 @@
 
 <script setup lang="ts">
 import { useData } from 'vitepress'
+import { onMounted, onUnmounted } from 'vue'
+
 const data = useData()
 const title = data.page.value.title
 const author = 'flaribbit' //TODO
 const date = '2022-01-01'
 const view = 114514
+
+const onScroll = throttleAndDebounce(setActiveLink, 300)
+onMounted(() => {
+  setActiveLink()
+  window.addEventListener('scroll', onScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
+
+function setActiveLink(): void {
+  const anchors = document.querySelectorAll<HTMLAnchorElement>('.header-anchor')
+  for (let i = 0; i < anchors.length; i++) {
+    const anchor = anchors[i]
+    const nextAnchor = anchors[i + 1]
+    const [isActive, hash] = isAnchorActive(i, anchor, nextAnchor)
+    if (isActive) {
+      history.replaceState(null, document.title, hash ? hash : ' ')
+    }
+  }
+}
+
+function isAnchorActive(index: number, anchor: HTMLAnchorElement, nextAnchor: HTMLAnchorElement): [boolean, string | null] {
+  const scrollTop = window.scrollY
+  if (index === 0 && scrollTop === 0) return [true, null]
+  if (scrollTop < getAnchorTop(anchor)) return [false, null]
+  if (!nextAnchor || scrollTop < getAnchorTop(nextAnchor)) return [true, decodeURIComponent(anchor.hash)]
+  return [false, null]
+}
+
+function getAnchorTop(anchor: HTMLAnchorElement): number {
+  const pageOffset = document.querySelector<HTMLElement>('header')!.offsetHeight
+  return anchor.parentElement!.offsetTop - pageOffset + 400
+}
+
+function throttleAndDebounce(fn: () => void, delay: number): () => void {
+  let timeout: number
+  let called = false
+  return () => {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    if (!called) {
+      fn()
+      called = true
+      setTimeout(() => {
+        called = false
+      }, delay)
+    } else {
+      timeout = setTimeout(fn, delay)
+    }
+  }
+}
 </script>
 
 <style lang="scss">
