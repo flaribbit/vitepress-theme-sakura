@@ -17,9 +17,6 @@ import Banner from './Banner.vue'
 import Article from './Article.vue'
 import BlogList from './BlogList.vue'
 import ToTop from './ToTop.vue'
-import '@fortawesome/fontawesome-free/css/all.css'
-import '@fortawesome/fontawesome-free/css/regular.css'
-
 import { computed } from 'vue'
 import { useRoute } from 'vitepress'
 const route = useRoute()
