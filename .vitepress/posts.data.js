@@ -7,10 +7,10 @@ const { createMarkdownRenderer } = require('vitepress')
 const md = createMarkdownRenderer(process.cwd())
 
 module.exports = {
-  watch: '../*.md',
+  watch: '../posts/*.md',
   load(asFeed = false) {
-    const postDir = path.resolve(__dirname, '..')
-    checkFile(path.join(postDir, 'tags.md'), '')
+    const postDir = path.resolve(__dirname, '../posts')
+    checkTags()
     return fs
       .readdirSync(postDir)
       .filter((file) => file.endsWith('.md'))
@@ -35,7 +35,7 @@ function getPost(file, postDir, asFeed = false) {
 
   const post = {
     title: data.title,
-    href: `/${file.replace(/\.md$/, '.html')}`,
+    href: `/posts/${file.replace(/\.md$/, '.html')}`,
     date: formatDate(data.date || timestamp),
     tags: data.tags,
     excerpt: md.render(excerpt)
@@ -60,9 +60,10 @@ function formatDate(date) {
   return date.toLocaleDateString('sv-SE')
 }
 
-function checkFile(file, content) {
-  if (!fs.existsSync(file)) {
-    console.log(`${file} not found, creating new file`)
-    fs.writeFileSync(file, content)
+function checkTags() {
+  if (!fs.existsSync('tags')) {
+    console.log('Creating page: /tags')
+    fs.mkdirSync('tags')
+    fs.writeFileSync('tags/index.md', '---\ntitle: 标签\n---\n')
   }
 }

@@ -28,9 +28,9 @@
 interface MenuItem { icon: string, name: string, url: string }
 const menu: MenuItem[] = [
   { icon: 'fa-home', name: '首页', url: '/' },
-  { icon: 'fa-archive', name: '归档', url: '/archive' },
-  { icon: 'fa-list-ul', name: '清单', url: '/list' },
-  { icon: 'fa-leaf', name: '关于', url: '/about' }
+  { icon: 'fa-tag', name: '标签', url: '/tags/' },
+  { icon: 'fa-archive', name: '归档', url: '/archive/' },
+  { icon: 'fa-leaf', name: '关于', url: '/about/' }
 ]
 </script>
 
