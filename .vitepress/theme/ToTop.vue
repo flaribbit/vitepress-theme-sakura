@@ -15,9 +15,9 @@ const onScroll = () => {
 const toTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
-onScroll()
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
+  onScroll()
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
