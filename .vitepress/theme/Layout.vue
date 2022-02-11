@@ -19,9 +19,10 @@ import BlogList from './BlogList.vue'
 import ToTop from './ToTop.vue'
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
-const route = useRoute()
-const isIndex = computed(() => route.path.replace(/index.html$/, '') === base)
 const base = useData().site.value.base
+const route = useRoute()
+if (!route.path.startsWith(base)) route.path = base.slice(0, -1) + route.path // dirty fix for https://github.com/vuejs/vitepress/issues/446
+const isIndex = computed(() => route.path.replace(/index.html$/, '') === base)
 
 </script>
 

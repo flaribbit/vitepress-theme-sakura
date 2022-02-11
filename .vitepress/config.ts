@@ -1,7 +1,7 @@
 import type { SiteData, HeadConfig } from 'vitepress'
 export default {
   lang: 'zh-CN',
-  base: '/vitepress-theme-sakura',
+  base: '/vitepress-theme-sakura/',
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css' }],
