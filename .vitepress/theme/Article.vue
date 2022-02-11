@@ -143,5 +143,57 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
       opacity: 1;
     }
   }
+  h2 {
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+    border-bottom: 1px dashed #ddd;
+  }
+  p {
+    line-height: 1.7em;
+  }
+}
+.custom-block {
+  &.tip,
+  &.info,
+  &.warning,
+  &.danger {
+    margin: 1rem 0;
+    border-left: 0.5rem solid;
+    padding: 0.1rem 1.5rem;
+    overflow-x: auto;
+  }
+  &.tip {
+    background-color: #f3f5f7;
+    border-color: #3eaf7c;
+  }
+  &.info {
+    background-color: #f3f5f7;
+    border-color: #476582;
+  }
+  &.warning {
+    border-color: #e7c000;
+    color: #6b5900;
+    background-color: #ffe5644d;
+    .custom-block-title {
+      color: #b29400;
+    }
+  }
+  &.danger {
+    border-color: #c00;
+    color: #4d0000;
+    background-color: #ffe6e6;
+    .custom-block-title {
+      color: #900;
+    }
+  }
+}
+.custom-block-title {
+  font-weight: bold;
+}
+// inline code
+code {
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  background-color: rgba(27, 31, 35, 0.05);
 }
 </style>
