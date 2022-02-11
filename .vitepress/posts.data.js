@@ -35,7 +35,7 @@ function getPost(file, postDir, asFeed = false) {
 
   const post = {
     title: data.title,
-    href: `/posts/${file.replace(/\.md$/, '.html')}`,
+    href: `posts/${file.replace(/\.md$/, '.html')}`,
     date: formatDate(data.date || timestamp),
     tags: data.tags,
     excerpt: md.render(excerpt)

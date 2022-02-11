@@ -18,9 +18,10 @@ import Article from './Article.vue'
 import BlogList from './BlogList.vue'
 import ToTop from './ToTop.vue'
 import { computed } from 'vue'
-import { useRoute } from 'vitepress'
+import { useRoute, useData } from 'vitepress'
 const route = useRoute()
-const isIndex = computed(() => route.path.replace(/index.html$/, '') === '/')
+const isIndex = computed(() => route.path.replace(/index.html$/, '') === base)
+const base = useData().site.value.base
 
 </script>
 

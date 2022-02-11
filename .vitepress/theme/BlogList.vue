@@ -7,13 +7,13 @@
           <i class="fa fa-clock"></i>
           发布于 {{ p.date }}
         </div>
-        <a :href="p.href">
+        <a :href="base + p.href">
           <div class="title">{{ p.title }}</div>
         </a>
         <!-- <div class="view">
           <i class="fa fa-eye"></i>
           {{ 114514 }} 阅读
-        </div> -->
+        </div>-->
         <div class="content" v-html="p.excerpt"></div>
         <div class="tags">
           <a v-for="t in p.tags" :href="'/tags?q=' + t">
@@ -28,6 +28,8 @@
 
 <script setup lang="ts">
 import { data as posts } from '../posts.data'
+import { useData } from 'vitepress'
+const base = useData().site.value.base
 console.log(posts)
 </script>
 

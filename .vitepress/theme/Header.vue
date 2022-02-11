@@ -6,7 +6,7 @@
       <span class="menu">
         <ul>
           <li v-for="m in menu">
-            <a :href="m.url">
+            <a :href="base + m.url">
               <span>
                 <i :class="['fa', m.icon]"></i>
                 {{ m.name }}
@@ -25,12 +25,14 @@
 </template>
 
 <script setup lang="ts">
+import { useData } from 'vitepress'
+const base = useData().site.value.base
 interface MenuItem { icon: string, name: string, url: string }
 const menu: MenuItem[] = [
-  { icon: 'fa-home', name: '首页', url: '/' },
-  { icon: 'fa-tag', name: '标签', url: '/tags/' },
-  { icon: 'fa-archive', name: '归档', url: '/archive/' },
-  { icon: 'fa-leaf', name: '关于', url: '/about/' }
+  { icon: 'fa-home', name: '首页', url: '' },
+  { icon: 'fa-tag', name: '标签', url: 'tags/' },
+  { icon: 'fa-archive', name: '归档', url: 'archive/' },
+  { icon: 'fa-leaf', name: '关于', url: 'about/' }
 ]
 </script>
 
