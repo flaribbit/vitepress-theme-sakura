@@ -16,7 +16,7 @@
         </div>-->
         <div class="content" v-html="p.excerpt"></div>
         <div class="tags">
-          <a v-for="t in p.tags" :href="'/tags?q=' + t">
+          <a v-for="t in p.tags" :href="base + '/tags/?q=' + t">
             <i class="fa fa-tag"></i>
             {{ t }}
           </a>
