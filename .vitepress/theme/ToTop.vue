@@ -4,12 +4,13 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-const style = ref('')
+const hide = 'top: -900px'
+const style = ref(hide)
 const onScroll = () => {
   if (window.scrollY > 200) {
-    style.value = `top: ${window.innerHeight - 968}px`
+    style.value = `top: ${Math.min(window.innerHeight - 968, 0)}px`
   } else {
-    style.value = "top: -900px"
+    style.value = hide
   }
 }
 const toTop = () => {
