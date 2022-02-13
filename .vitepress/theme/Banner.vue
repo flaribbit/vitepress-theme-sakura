@@ -50,10 +50,12 @@ const social = [
   .wave1 {
     background: url(./assets/wave1.png) repeat-x;
     height: 65px;
+    animation: wave-animation-1 30s infinite linear;
   }
   .wave2 {
     background: url(./assets/wave2.png) repeat-x;
     height: 80px;
+    animation: wave-animation-2 20s infinite linear;
   }
   .info {
     font-family: Arial, Helvetica, sans-serif;
@@ -83,6 +85,22 @@ const social = [
       color: white;
       margin: 6px;
     }
+  }
+}
+@keyframes wave-animation-1 {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -997px;
+  }
+}
+@keyframes wave-animation-2 {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -1009px;
   }
 }
 </style>
