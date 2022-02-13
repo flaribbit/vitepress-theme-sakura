@@ -35,23 +35,25 @@ const social = [
 .banner {
   background-image: url(https://api.2heng.xin/cover/);
   background-size: cover;
+  position: relative;
+  overflow: hidden;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  .wave1 {
-    background: url(./assets/wave1.png) repeat-x;
+  .wave1,
+  .wave2 {
     position: absolute;
     width: 400%;
-    height: 65px;
     bottom: 0;
+  }
+  .wave1 {
+    background: url(./assets/wave1.png) repeat-x;
+    height: 65px;
   }
   .wave2 {
     background: url(./assets/wave2.png) repeat-x;
-    position: absolute;
-    width: 400%;
     height: 80px;
-    bottom: 0;
   }
   .info {
     font-family: Arial, Helvetica, sans-serif;
