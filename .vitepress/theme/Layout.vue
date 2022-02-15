@@ -38,6 +38,9 @@ body {
   --color-accent: #fe9600;
   --color-gray: #666;
   --color-bg: #eee;
+  --code-line-height: 24px;
+  --code-font-family: monospace;
+  --code-font-size: 16px;
 }
 * {
   box-sizing: border-box;

@@ -1,0 +1,164 @@
+/* Language marker */
+div[class~='language-html']:before,
+div[class~='language-markup']:before {
+  content: 'html';
+}
+
+div[class~='language-md']:before,
+div[class~='language-markdown']:before {
+  content: 'md';
+}
+
+div[class~='language-css']:before {
+  content: 'css';
+}
+
+div[class~='language-sass']:before {
+  content: 'sass';
+}
+
+div[class~='language-scss']:before {
+  content: 'scss';
+}
+
+div[class~='language-less']:before {
+  content: 'less';
+}
+
+div[class~='language-stylus']:before {
+  content: 'styl';
+}
+
+div[class~='language-js']:before,
+div[class~='language-javascript']:before {
+  content: 'js';
+}
+
+div[class~='language-ts']:before,
+div[class~='language-typescript']:before {
+  content: 'ts';
+}
+
+div[class~='language-json']:before {
+  content: 'json';
+}
+
+div[class~='language-rb']:before,
+div[class~='language-ruby']:before {
+  content: 'rb';
+}
+
+div[class~='language-py']:before,
+div[class~='language-python']:before {
+  content: 'py';
+}
+
+div[class~='language-sh']:before,
+div[class~='language-bash']:before {
+  content: 'sh';
+}
+
+div[class~='language-php']:before {
+  content: 'php';
+}
+
+div[class~='language-go']:before {
+  content: 'go';
+}
+
+div[class~='language-rust']:before {
+  content: 'rust';
+}
+
+div[class~='language-java']:before {
+  content: 'java';
+}
+
+div[class~='language-c']:before {
+  content: 'c';
+}
+
+div[class~='language-yaml']:before {
+  content: 'yaml';
+}
+
+div[class~='language-dockerfile']:before {
+  content: 'dockerfile';
+}
+
+div[class~='language-vue']:before {
+  content: 'vue';
+}
+
+/* Theme from https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-light.css */
+
+/* General */
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.namespace {
+	opacity: 0.8;
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+	color: hsl(230, 4%, 64%);
+}
+
+.token.doctype,
+.token.punctuation,
+.token.entity {
+	color: hsl(230, 8%, 24%);
+}
+
+.token.attr-name,
+.token.class-name,
+.token.boolean,
+.token.constant,
+.token.number,
+.token.atrule {
+	color: hsl(35, 99%, 36%);
+}
+
+.token.keyword {
+	color: hsl(301, 63%, 40%);
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.important {
+	color: hsl(5, 74%, 59%);
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+	color: hsl(119, 34%, 47%);
+}
+
+.token.variable,
+.token.operator,
+.token.function {
+	color: hsl(221, 87%, 60%);
+}
+
+.token.url {
+	color: hsl(198, 99%, 37%);
+}

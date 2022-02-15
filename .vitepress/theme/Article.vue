@@ -202,4 +202,55 @@ code {
   padding: 0.2em 0.4em;
   background-color: rgba(27, 31, 35, 0.05);
 }
+@import "./code.css";
+div[class*="language-"] {
+  position: relative;
+  line-height: var(--code-line-height);
+  padding-top: 32px;
+  margin: 1em 0;
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  border: 1px solid #d0d7de;
+  overflow: auto;
+  pre {
+    border-top: 1px solid #d0d7de;
+    padding-left: 3em;
+    margin: 0;
+    // background-color: #f3f4f4;
+    background-color: white;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fc625d;
+      box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    }
+  }
+  &:before {
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    color: var(--color-gray)
+  }
+  code {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+.line-numbers-wrapper {
+  position: absolute;
+  left: 0;
+  top: 32px;
+  font-family: var(--code-font-family);
+  width: 3em;
+  text-align: center;
+  color: #888;
+  user-select: none;
+}
 </style>
