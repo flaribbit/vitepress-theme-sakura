@@ -5,12 +5,16 @@
       <div class="info">{{ author }} · {{ date }} · {{ view }} 次阅读</div>
     </div>
   </div>
-  <Content class="content" />
+  <div class="article">
+    <Content class="content" />
+    <Waline />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { onMounted, onUnmounted } from 'vue'
+import Waline from './Waline.vue'
 
 const data = useData()
 const title = data.page.value.title
@@ -98,9 +102,11 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
     font-size: 14px;
   }
 }
-.content {
+.article {
   max-width: 800px;
   margin: auto;
+}
+.content {
   color: #02111d;
   hr {
     border: none;

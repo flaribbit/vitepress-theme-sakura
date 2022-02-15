@@ -30,7 +30,6 @@
 import { data as posts } from '../posts.data'
 import { useData } from 'vitepress'
 const base = useData().site.value.base
-console.log(posts)
 </script>
 
 <style lang="scss">
