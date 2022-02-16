@@ -35,6 +35,7 @@ const social = [
 .banner {
   background-image: url(https://api.2heng.xin/cover/);
   background-size: cover;
+  background-position: center center;
   position: relative;
   overflow: hidden;
   height: 100vh;

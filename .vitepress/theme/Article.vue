@@ -82,6 +82,7 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
   width: 100%;
   background-image: url(https://uploadfile.bizhizu.cn/up/17/f1/7b/17f17b19014c0e15f30bbaeda308bf06.jpg);
   background-size: cover;
+  background-position: center center;
   margin-top: 64px;
   position: relative;
   .titlebox {
