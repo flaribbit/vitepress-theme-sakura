@@ -18,16 +18,12 @@ onMounted(() => {
 
 <style lang="scss">
 .v[data-class="v"] {
-  .vheader {
-    label,
-    input {
-      font-size: 14px;
-      font-family: var(--global-font);
-    }
-  }
+  label,
+  .vinput,
   .veditor,
   .vbtn {
     font-family: var(--global-font);
+    font-size: 14px !important;
   }
 }
 </style>
