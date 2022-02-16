@@ -112,10 +112,6 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
 }
 .content {
   color: #02111d;
-  hr {
-    border: none;
-    border-bottom: 1px dashed #ddd;
-  }
   a {
     color: #e58700;
     position: relative;
@@ -156,10 +152,18 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
   h2 {
     padding-bottom: 0.3em;
     margin-bottom: 1em;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed var(--color-border);
   }
   p {
     line-height: 1.7em;
+  }
+}
+@media (max-width: 720px) {
+  .abanner {
+    height: 200px;
+    .titlebox {
+      margin-left: 0.5em;
+    }
   }
 }
 .custom-block {
@@ -217,10 +221,10 @@ div[class*="language-"] {
   margin: 1em 0;
   background-color: #f6f8fa;
   border-radius: 8px;
-  border: 1px solid #d0d7de;
+  border: 1px solid var(--color-border);
   overflow: hidden;
   pre {
-    border-top: 1px solid #d0d7de;
+    border-top: 1px solid var(--color-border);
     padding-left: 3em;
     margin: 0;
     // background-color: #f3f4f4;
@@ -259,7 +263,7 @@ div[class*="language-"] {
   text-align: center;
   color: #888;
   background-color: white;
-  border-top: 1px solid #d0d7de;
+  border-top: 1px solid var(--color-border);
   user-select: none;
 }
 </style>

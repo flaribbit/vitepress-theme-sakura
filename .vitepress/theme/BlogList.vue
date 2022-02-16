@@ -1,5 +1,9 @@
 <template>
   <div class="bloglist">
+    <div class="section">
+      <i class="fa-solid fa-book"></i> 文章列表
+      <hr />
+    </div>
     <div class="card" v-for="p in posts">
       <div class="image"></div>
       <div class="info">
@@ -36,6 +40,9 @@ const base = useData().site.value.base
 .bloglist {
   max-width: 800px;
   margin: auto;
+  .section {
+    padding-top: 24px;
+  }
   .date,
   .view,
   .tags {
@@ -70,6 +77,21 @@ const base = useData().site.value.base
     transition: color 0.2s ease-out;
     &:hover {
       color: var(--color-accent);
+    }
+  }
+}
+@media (max-width: 720px) {
+  .bloglist {
+    .card {
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    .section {
+      margin: 0 24px;
     }
   }
 }

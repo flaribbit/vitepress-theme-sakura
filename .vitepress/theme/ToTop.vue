@@ -8,7 +8,11 @@ const hide = 'top: -900px'
 const style = ref(hide)
 const onScroll = () => {
   if (window.scrollY > 200) {
-    style.value = `top: ${Math.min(window.innerHeight - 968, 0)}px`
+    if (window.innerWidth > 720) {
+      style.value = `top: ${Math.min(window.innerHeight - 968, 0)}px`
+    } else {
+      style.value = `top: -640px`
+    }
   } else {
     style.value = hide
   }

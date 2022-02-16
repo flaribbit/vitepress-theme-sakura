@@ -76,6 +76,7 @@ const social = [
   .text {
     text-align: center;
     font-size: 16px;
+    line-height: 24px;
   }
   .contact {
     display: flex;
@@ -85,6 +86,19 @@ const social = [
     a {
       color: white;
       margin: 6px;
+    }
+  }
+}
+@media (max-width: 720px) {
+  .banner {
+    .info {
+      margin: 0 0.5em;
+    }
+    .box {
+      width: 100%;
+    }
+    .text {
+      margin: 1em 0.5em;
     }
   }
 }

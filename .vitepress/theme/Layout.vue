@@ -38,6 +38,7 @@ body {
   --color-accent: #fe9600;
   --color-gray: #666;
   --color-bg: #eee;
+  --color-border: #d0d7de;
   --code-line-height: 24px;
   --code-font-family: monospace;
   --code-font-size: 15px;
@@ -47,6 +48,10 @@ body {
 }
 a {
   text-decoration: none;
+}
+hr {
+  border: none;
+  border-bottom: 1px dashed var(--color-border);
 }
 ::-webkit-scrollbar {
   width: 6px;

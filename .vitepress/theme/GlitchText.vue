@@ -46,6 +46,11 @@ defineProps({
     }
   }
 }
+@media (max-width: 720px) {
+  .glitch {
+    font-size: 48px;
+  }
+}
 @keyframes glitch-loop-1 {
   0% {
     clip: rect(36px, 9999px, 9px, 0);
