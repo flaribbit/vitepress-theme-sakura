@@ -105,6 +105,9 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
 .article {
   max-width: 800px;
   margin: auto;
+  .content {
+    margin: 0.5em;
+  }
 }
 .content {
   color: #02111d;
@@ -214,13 +217,14 @@ div[class*="language-"] {
   background-color: #f6f8fa;
   border-radius: 8px;
   border: 1px solid #d0d7de;
-  overflow: auto;
+  overflow: hidden;
   pre {
     border-top: 1px solid #d0d7de;
     padding-left: 3em;
     margin: 0;
     // background-color: #f3f4f4;
     background-color: white;
+    overflow: scroll;
     &:before {
       content: "";
       position: absolute;
@@ -253,6 +257,8 @@ div[class*="language-"] {
   width: 3em;
   text-align: center;
   color: #888;
+  background-color: white;
+  border-top: 1px solid #d0d7de;
   user-select: none;
 }
 </style>
