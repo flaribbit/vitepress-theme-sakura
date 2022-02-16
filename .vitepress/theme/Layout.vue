@@ -40,7 +40,7 @@ body {
   --color-bg: #eee;
   --code-line-height: 24px;
   --code-font-family: monospace;
-  --code-font-size: 16px;
+  --code-font-size: 15px;
 }
 * {
   box-sizing: border-box;

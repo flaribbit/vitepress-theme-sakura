@@ -198,6 +198,7 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
 }
 // inline code
 code {
+  font-size: var(--code-font-size);
   border-radius: 4px;
   padding: 0.2em 0.4em;
   background-color: rgba(27, 31, 35, 0.05);
@@ -206,6 +207,8 @@ code {
 div[class*="language-"] {
   position: relative;
   line-height: var(--code-line-height);
+  font-size: var(--code-font-size);
+  font-family: var(--code-font-family);
   padding-top: 32px;
   margin: 1em 0;
   background-color: #f6f8fa;
@@ -236,7 +239,7 @@ div[class*="language-"] {
     width: 100%;
     text-align: center;
     font-size: 1em;
-    color: var(--color-gray)
+    color: var(--color-gray);
   }
   code {
     padding: 0;
@@ -247,7 +250,6 @@ div[class*="language-"] {
   position: absolute;
   left: 0;
   top: 32px;
-  font-family: var(--code-font-family);
   width: 3em;
   text-align: center;
   color: #888;
