@@ -5,7 +5,7 @@
     "serve": "vitepress serve"
   },
   "name": "vitepress-theme-sakura",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "sakura",
   "main": "index.ts",
   "keywords": [

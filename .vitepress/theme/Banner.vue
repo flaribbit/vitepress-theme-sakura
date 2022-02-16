@@ -24,10 +24,10 @@
 import GlitchText from './GlitchText.vue'
 const banner_text = 'You got to put the past behind you before you can move on.'
 const social = [
-  { icon: 'fa-github', url: '' },
-  { icon: 'fa-twitter', url: '' },
-  { icon: 'fa-weibo', url: '' },
-  { icon: 'fa-qq', url: '' },
+  { icon: 'fa-github', url: 'https://github.com/flaribbit/vitepress-theme-sakura' },
+  // { icon: 'fa-twitter', url: '' },
+  // { icon: 'fa-weibo', url: '' },
+  // { icon: 'fa-qq', url: '' },
 ]
 </script>
 
