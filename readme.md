@@ -2,6 +2,8 @@
 
 comming s∞n
 
+[preview](https://flaribbit.github.io/vitepress-theme-sakura/)
+
 ## thanks
 - [wordpress-theme-sakura](https://github.com/mashirozx/sakura)
 - [hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun)
