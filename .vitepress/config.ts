@@ -1,7 +1,9 @@
 import { type UserConfig } from 'vitepress'
 export interface ThemeConfig {
   name?: string,
+  cover?: string,
   hello?: string,
+  motto?: string,
   social?: { icon: string, url: string }[],
   waline?: string,
 }
@@ -20,6 +22,7 @@ export default {
   },
   themeConfig: {
     name: 'flaribbit',
+    cover: 'https://www.dmoe.cc/random.php',
     social: [
       { icon: 'fa-github', url: 'github.com' },
       { icon: 'fa-twitter', url: 'twitter.com' },

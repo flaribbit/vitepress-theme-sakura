@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div class="banner" :style="`background-image: url(${cover})`">
     <div class="wave1"></div>
     <div class="wave2"></div>
     <div class="info">
@@ -7,7 +7,7 @@
       <span class="box">
         <p class="text">
           <i class="fa fa-quote-left"></i>
-          {{ banner_text }}
+          {{ motto }}
           <i class="fa fa-quote-right"></i>
         </p>
         <div class="contact">
@@ -24,14 +24,15 @@
 import { useData } from 'vitepress'
 import GlitchText from './GlitchText.vue'
 const themeConfig = useData().theme.value
-const banner_text = 'You got to put the past behind you before you can move on.'
-const social = themeConfig.social || []
 const hello = themeConfig.hello
+const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
+const social = themeConfig.social || []
+const cover = themeConfig.cover
+console.log(cover)
 </script>
 
 <style lang="scss">
 .banner {
-  background-image: url(https://api.2heng.xin/cover/);
   background-size: cover;
   background-position: center center;
   position: relative;
