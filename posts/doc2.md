@@ -1,5 +1,6 @@
 ---
-title: doc2
+title: 测试文档
+tags: [测试, 算法]
 ---
 
 二分查找 `binsearch`

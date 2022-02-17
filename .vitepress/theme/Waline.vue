@@ -8,10 +8,16 @@ declare const Waline: any;
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { useData } from 'vitepress'
 onMounted(() => {
+  const serverURL = useData().site.value.themeConfig.waline
+  if (!serverURL) {
+    console.error('未配置waline服务端地址')
+    return
+  }
   Waline({
     el: '#waline',
-    serverURL: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
+    serverURL: serverURL,
   })
 })
 </script>

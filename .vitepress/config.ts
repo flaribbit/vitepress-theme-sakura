@@ -1,4 +1,8 @@
 import { type UserConfig } from 'vitepress'
+export interface ThemeConfig {
+  name?: string,
+  waline?: string,
+}
 export default {
   lang: 'zh-CN',
   base: '/vitepress-theme-sakura/',
@@ -11,5 +15,9 @@ export default {
   ],
   markdown: {
     lineNumbers: true
+  },
+  themeConfig: {
+    name: 'flaribbit',
+    waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
   }
-} as UserConfig
+} as UserConfig<ThemeConfig>

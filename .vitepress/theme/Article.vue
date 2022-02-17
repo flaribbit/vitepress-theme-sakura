@@ -2,7 +2,7 @@
   <div class="abanner">
     <div class="titlebox">
       <h1 class="title">{{ title }}</h1>
-      <div class="info">{{ author }} · {{ date }} · {{ view }} 次阅读</div>
+      <div class="info">{{ author }} · 更新于 {{ date }} · {{ view }} 次阅读</div>
     </div>
   </div>
   <div class="article">
@@ -18,9 +18,9 @@ import Waline from './Waline.vue'
 
 const data = useData()
 const title = data.page.value.title
-const author = 'flaribbit' //TODO
-const date = '2022-01-01'
-const view = 114514
+const author = data.theme.value.name
+const date = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
+const view = 0 //TODO
 
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 onMounted(() => {
