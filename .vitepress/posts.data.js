@@ -4,12 +4,13 @@ const path = require('path')
 const matter = require('gray-matter')
 const { createMarkdownRenderer } = require('vitepress')
 
-const md = createMarkdownRenderer(process.cwd())
+const cwd = process.cwd()
+const md = createMarkdownRenderer(cwd)
 
 module.exports = {
-  watch: '../posts/*.md',
+  watch: path.relative(__dirname, cwd + '/posts/*.md').replace(/\\/g, '/'),
   load(asFeed = false) {
-    const postDir = path.resolve(__dirname, '../posts')
+    const postDir = path.join(cwd, 'posts')
     checkTags()
     return fs
       .readdirSync(postDir)
@@ -61,9 +62,10 @@ function formatDate(date) {
 }
 
 function checkTags() {
-  if (!fs.existsSync('tags')) {
+  const dir = path.join(cwd, 'tags')
+  if (!fs.existsSync(dir)) {
     console.log('Creating page: /tags')
-    fs.mkdirSync('tags')
+    fs.mkdirSync(dir)
     fs.writeFileSync('tags/index.md', '---\ntitle: 标签\n---\n')
   }
 }
