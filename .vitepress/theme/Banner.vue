@@ -3,7 +3,7 @@
     <div class="wave1"></div>
     <div class="wave2"></div>
     <div class="info">
-      <GlitchText text="Hello, sakura" />
+      <GlitchText :text="hello" />
       <span class="box">
         <p class="text">
           <i class="fa fa-quote-left"></i>
@@ -21,14 +21,12 @@
 </template>
 
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import GlitchText from './GlitchText.vue'
+const themeConfig = useData().theme.value
 const banner_text = 'You got to put the past behind you before you can move on.'
-const social = [
-  { icon: 'fa-github', url: 'https://github.com/flaribbit/vitepress-theme-sakura' },
-  // { icon: 'fa-twitter', url: '' },
-  // { icon: 'fa-weibo', url: '' },
-  // { icon: 'fa-qq', url: '' },
-]
+const social = themeConfig.social || []
+const hello = themeConfig.hello
 </script>
 
 <style lang="scss">

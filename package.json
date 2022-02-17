@@ -4,8 +4,8 @@
     "build": "vitepress build",
     "serve": "vitepress serve"
   },
-  "name": "@flaribbit/vitepress-theme-sakura",
-  "version": "0.0.3",
+  "name": "vitepress-theme-sakura",
+  "version": "0.0.9",
   "description": "vitepress-theme-sakura",
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
@@ -31,10 +31,11 @@
   },
   "homepage": "https://github.com/flaribbit/vitepress-theme-sakura#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org"
   },
   "files": [
     ".vitepress/theme",
+    ".vitepress/config.ts",
     ".vitepress/posts.data.js",
     ".vitepress/posts.data.d.ts"
   ]

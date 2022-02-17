@@ -1,6 +1,8 @@
 import { type UserConfig } from 'vitepress'
 export interface ThemeConfig {
   name?: string,
+  hello?: string,
+  social?: { icon: string, url: string }[],
   waline?: string,
 }
 export default {
@@ -18,6 +20,11 @@ export default {
   },
   themeConfig: {
     name: 'flaribbit',
+    social: [
+      { icon: 'fa-github', url: 'github.com' },
+      { icon: 'fa-twitter', url: 'twitter.com' },
+      { icon: 'fa-weibo', url: 'weibo.com' },
+    ],
     waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
   }
 } as UserConfig<ThemeConfig>
