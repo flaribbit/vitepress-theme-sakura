@@ -7,20 +7,44 @@
   </div>
   <div class="article">
     <Content class="content" />
-    <Waline />
+    <p>
+      <a
+        :href="base + posts[articleIndex - 1].href"
+        v-if="articleIndex - 1 >= 0"
+      >上一篇: {{ posts[articleIndex - 1].title }}</a>
+    </p>
+    <p>
+      <a
+        :href="base + posts[articleIndex + 1].href"
+        v-if="articleIndex + 1 < posts.length"
+      >下一篇: {{ posts[articleIndex + 1].title }}</a>
+    </p>
+    <Waline v-if="articleIndex != -1" ref="waline" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import { onMounted, onUnmounted } from 'vue'
+import { useData, useRoute } from 'vitepress'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { data as posts } from '../posts.data'
 import Waline from './Waline.vue'
 
 const data = useData()
-const title = data.page.value.title
+const base = data.site.value.base
+const route = useRoute()
+const title = ref('')
 const author = data.theme.value.name
-const date = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
-const view = 0 //TODO
+const date = ref('')
+const view = ref(0)
+
+const articleIndex = ref(0)
+const update = () => {
+  articleIndex.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
+  title.value = data.page.value.title
+  date.value = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
+}
+update()
+watch(route, update)
 
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 onMounted(() => {

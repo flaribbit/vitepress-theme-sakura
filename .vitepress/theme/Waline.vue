@@ -9,17 +9,22 @@ declare const Waline: any;
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useData } from 'vitepress'
+let waline: any = null
 onMounted(() => {
   const serverURL = useData().site.value.themeConfig.waline
   if (!serverURL) {
     console.error('未配置waline服务端地址')
     return
   }
-  Waline({
+  waline = Waline({
     el: '#waline',
     serverURL: serverURL,
   })
 })
+const update = () => {
+  waline.update()
+}
+defineExpose({ update })
 </script>
 
 <style lang="scss">

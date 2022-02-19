@@ -28,7 +28,6 @@ const hello = themeConfig.hello
 const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
 const social = themeConfig.social || []
 const cover = themeConfig.cover
-console.log(cover)
 </script>
 
 <style lang="scss">
