@@ -38,6 +38,7 @@ const title = ref('')
 const author = data.theme.value.name
 const date = ref('')
 const view = ref(0)
+const waline = ref<InstanceType<typeof Waline>>()
 const nav = reactive([
   { href: '', text: '', show: true },
   { href: '', text: '', show: true },
@@ -48,6 +49,7 @@ const update = () => {
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
   title.value = data.page.value.title
   date.value = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
+  waline.value?.update()
   let ival = index.value
   if (ival - 1 >= 0) {
     nav[0].href = base + posts[ival - 1].href
