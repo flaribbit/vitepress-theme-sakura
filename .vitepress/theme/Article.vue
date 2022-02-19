@@ -7,25 +7,27 @@
   </div>
   <div class="article">
     <Content class="content" />
-    <p>
-      <a
-        :href="base + posts[articleIndex - 1].href"
-        v-if="articleIndex - 1 >= 0"
-      >上一篇: {{ posts[articleIndex - 1].title }}</a>
-    </p>
-    <p>
-      <a
-        :href="base + posts[articleIndex + 1].href"
-        v-if="articleIndex + 1 < posts.length"
-      >下一篇: {{ posts[articleIndex + 1].title }}</a>
-    </p>
-    <Waline v-if="articleIndex != -1" ref="waline" />
+    <div class="content nav">
+      <span>
+        <a :href="nav[0].href" v-if="nav[0].show">
+          <i class="fa fa-angle-left"></i>
+          {{ nav[0].text }}
+        </a>
+      </span>
+      <span>
+        <a :href="nav[1].href" v-if="nav[1].show">
+          {{ nav[1].text }}
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </span>
+    </div>
+    <Waline v-if="index != -1" ref="waline" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, reactive, watch } from 'vue'
 import { data as posts } from '../posts.data'
 import Waline from './Waline.vue'
 
@@ -36,12 +38,31 @@ const title = ref('')
 const author = data.theme.value.name
 const date = ref('')
 const view = ref(0)
+const nav = reactive([
+  { href: '', text: '', show: true },
+  { href: '', text: '', show: true },
+])
 
-const articleIndex = ref(0)
+const index = ref(0)
 const update = () => {
-  articleIndex.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
+  index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
   title.value = data.page.value.title
   date.value = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
+  let ival = index.value
+  if (ival - 1 >= 0) {
+    nav[0].href = base + posts[ival - 1].href
+    nav[0].text = posts[ival - 1].title
+    nav[0].show = true
+  } else {
+    nav[0].show = false
+  }
+  if (ival + 1 < posts.length) {
+    nav[1].href = base + posts[ival + 1].href
+    nav[1].text = posts[ival + 1].title
+    nav[1].show = true
+  } else {
+    nav[1].show = false
+  }
 }
 update()
 watch(route, update)
@@ -132,6 +153,10 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
   margin: auto;
   .content {
     margin: 0.5em;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
   }
 }
 .content {
