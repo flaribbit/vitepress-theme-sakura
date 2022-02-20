@@ -22,7 +22,7 @@ onMounted(() => {
   })
 })
 const update = () => {
-  waline.update()
+  if (waline) waline.update()
 }
 defineExpose({ update })
 </script>
