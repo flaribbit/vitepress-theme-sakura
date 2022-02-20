@@ -25,6 +25,7 @@ defineProps({
   font-weight: bold;
   font-size: 80px;
   color: white;
+  text-shadow: rgba(0, 0, 0, 0.2) 4px 4px 8px;
   &:before {
     @include glitch-common;
     left: -1px;
