@@ -1,5 +1,5 @@
 <template>
-  <div class="abanner">
+  <div class="abanner" :style="cover">
     <div class="titlebox">
       <h1 class="title">{{ title }}</h1>
       <div class="info">{{ author }} · 更新于 {{ date }} · {{ view }} 次阅读</div>
@@ -38,6 +38,7 @@ const title = ref('')
 const author = data.theme.value.name
 const date = ref('')
 const view = ref(0)
+const cover = ref('')
 const waline = ref<InstanceType<typeof Waline>>()
 const nav = reactive([
   { href: '', text: '', show: true },
@@ -48,6 +49,7 @@ const index = ref(0)
 const update = () => {
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
   title.value = data.page.value.title
+  cover.value = `background-image: url(${data.page.value.frontmatter.cover || "https://tva4.sinaimg.cn/large/0060lm7Tly1ftg6omnqa4j31hc0u010z.jpg"})`
   date.value = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
   waline.value?.update()
   let ival = index.value
@@ -127,7 +129,6 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
 .abanner {
   height: 400px;
   width: 100%;
-  background-image: url(https://uploadfile.bizhizu.cn/up/17/f1/7b/17f17b19014c0e15f30bbaeda308bf06.jpg);
   background-size: cover;
   background-position: center center;
   margin-top: 64px;

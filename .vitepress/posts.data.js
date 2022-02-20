@@ -39,6 +39,7 @@ function getPost(file, postDir, asFeed = false) {
     href: `posts/${file.replace(/\.md$/, '.html')}`,
     date: formatDate(data.date || timestamp),
     tags: data.tags,
+    cover: data.cover,
     excerpt: md.render(excerpt)
   }
   if (asFeed) {
