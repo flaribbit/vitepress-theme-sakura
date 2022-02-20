@@ -1,4 +1,4 @@
-import { type UserConfig } from 'vitepress'
+import { defineConfigWithTheme } from 'vitepress'
 export interface ThemeConfig {
   name?: string,
   cover?: string,
@@ -7,7 +7,7 @@ export interface ThemeConfig {
   social?: { icon: string, url: string }[],
   waline?: string,
 }
-export default {
+export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
   base: '/vitepress-theme-sakura/',
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
@@ -30,4 +30,4 @@ export default {
     ],
     waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
   }
-} as UserConfig<ThemeConfig>
+})

@@ -10,7 +10,7 @@
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
   },
-  "main": ".vitepress/theme/index.ts",
+  "main": "lib.ts",
   "keywords": [
     "vitepress",
     "theme",
@@ -34,6 +34,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "files": [
+    "./lib.ts",
     ".vitepress/theme",
     ".vitepress/config.ts",
     ".vitepress/posts.data.js",
