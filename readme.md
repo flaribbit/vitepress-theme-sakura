@@ -4,6 +4,8 @@ comming s∞n
 
 [preview](https://flaribbit.github.io/vitepress-theme-sakura/)
 
+![preview](./preview.webp)
+
 ## Quick start
 
 Install dependencies
@@ -49,3 +51,4 @@ Then write articles and save to `posts/*.md`, then run `vitepress dev` for previ
 - [hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun)
 - [vuejs/blog](https://github.com/vuejs/blog)
 - [wordpress-theme-Sakurairo](https://github.com/mirai-mamori/Sakurairo)
+- [xiaowai/api](https://api.ixiaowai.cn/)
