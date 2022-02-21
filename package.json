@@ -5,7 +5,7 @@
     "serve": "vitepress serve"
   },
   "name": "vitepress-theme-sakura",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "vitepress-theme-sakura",
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"

@@ -239,7 +239,7 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
   &.warning {
     border-color: #e7c000;
     color: #6b5900;
-    background-color: #ffe5644d;
+    background-color: #fff7d0;
     .custom-block-title {
       color: #b29400;
     }
@@ -249,7 +249,7 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
     color: #4d0000;
     background-color: #ffe6e6;
     .custom-block-title {
-      color: #900;
+      color: #900000;
     }
   }
 }
