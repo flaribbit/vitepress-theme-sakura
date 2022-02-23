@@ -281,7 +281,7 @@ div[class*="language-"] {
     margin: 0;
     // background-color: #f3f4f4;
     background-color: white;
-    overflow: scroll;
+    overflow-x: scroll;
     &:before {
       content: "";
       position: absolute;

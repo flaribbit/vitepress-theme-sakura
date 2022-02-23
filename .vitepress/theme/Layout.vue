@@ -49,6 +49,9 @@ body {
 a {
   text-decoration: none;
 }
+img {
+  max-width: 100%;
+}
 hr {
   border: none;
   border-bottom: 1px dashed var(--color-border);
