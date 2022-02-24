@@ -22,7 +22,7 @@
       </span>
     </div>
     <Waline v-if="index != -1" ref="waline" />
-    <TOC :data="data.page.value.headers" />
+    <TOC :data="data.page.value.headers" :active="active" />
   </div>
 </template>
 
@@ -30,6 +30,7 @@
 import { useData, useRoute } from 'vitepress'
 import { onMounted, onUnmounted, ref, reactive, watch } from 'vue'
 import { data as posts } from '../posts.data'
+import { throttleAndDebounce } from './utils'
 import Waline from './Waline.vue'
 import TOC from './TOC.vue'
 
@@ -41,6 +42,7 @@ const author = data.theme.value.name
 const date = ref('')
 const view = ref(0)
 const cover = ref('')
+const active = ref(0)
 const waline = ref<InstanceType<typeof Waline>>()
 const nav = reactive([
   { href: '', text: '', show: true },
@@ -73,6 +75,22 @@ const update = () => {
 update()
 watch(route, update)
 
+const setActiveLink = () => {
+  const headers = data.page.value.headers
+  for (let i = 0; i < headers.length; i++) {
+    const el = document.getElementById(headers[i].slug)
+    const rect = el?.getBoundingClientRect()!
+    if (rect.top > 200) {
+      let hash = ' '
+      if (i > 0) {
+        active.value = i - 1
+        hash = '#' + headers[i - 1].slug
+      }
+      history.replaceState(null, document.title, hash)
+      break
+    }
+  }
+}
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 onMounted(() => {
   setActiveLink()
@@ -82,49 +100,6 @@ onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
 
-function setActiveLink(): void {
-  const anchors = document.querySelectorAll<HTMLAnchorElement>('.header-anchor')
-  for (let i = 0; i < anchors.length; i++) {
-    const anchor = anchors[i]
-    const nextAnchor = anchors[i + 1]
-    const [isActive, hash] = isAnchorActive(i, anchor, nextAnchor)
-    if (isActive) {
-      history.replaceState(null, document.title, hash ? hash : ' ')
-    }
-  }
-}
-
-function isAnchorActive(index: number, anchor: HTMLAnchorElement, nextAnchor: HTMLAnchorElement): [boolean, string | null] {
-  const scrollTop = window.scrollY
-  if (index === 0 && scrollTop === 0) return [true, null]
-  if (scrollTop < getAnchorTop(anchor)) return [false, null]
-  if (!nextAnchor || scrollTop < getAnchorTop(nextAnchor)) return [true, decodeURIComponent(anchor.hash)]
-  return [false, null]
-}
-
-function getAnchorTop(anchor: HTMLAnchorElement): number {
-  const pageOffset = document.querySelector<HTMLElement>('header')!.offsetHeight
-  return anchor.parentElement!.offsetTop - pageOffset + 400
-}
-
-function throttleAndDebounce(fn: () => void, delay: number): () => void {
-  let timeout: number
-  let called = false
-  return () => {
-    if (timeout) {
-      clearTimeout(timeout)
-    }
-    if (!called) {
-      fn()
-      called = true
-      setTimeout(() => {
-        called = false
-      }, delay)
-    } else {
-      timeout = setTimeout(fn, delay)
-    }
-  }
-}
 </script>
 
 <style lang="scss">

@@ -62,4 +62,9 @@ const props = defineProps({
     }
   }
 }
+@media (max-width: 720px) {
+  .toc-container {
+    display: none;
+  }
+}
 </style>
