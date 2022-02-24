@@ -27,13 +27,8 @@ const isIndex = computed(() => route.path.replace(/index.html$/, '') === base)
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--global-font);
-  font-size: 16px;
-  overflow-x: hidden;
-
+html {
+  scroll-behavior: smooth;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --color-accent: #fe9600;
   --color-gray: #666;
@@ -42,6 +37,13 @@ body {
   --code-line-height: 24px;
   --code-font-family: monospace;
   --code-font-size: 15px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--global-font);
+  font-size: 16px;
+  overflow-x: hidden;
 }
 * {
   box-sizing: border-box;
