@@ -1,6 +1,7 @@
 # vitepress-theme-sakura
 
-comming s∞n
+[![npm](https://img.shields.io/npm/v/vitepress-theme-sakura?logo=npm)](https://www.npmjs.com/package/vitepress-theme-sakura)
+[![Build](https://github.com/flaribbit/vitepress-theme-sakura/actions/workflows/build.yml/badge.svg)](https://github.com/flaribbit/vitepress-theme-sakura/actions)
 
 [preview](https://flaribbit.github.io/vitepress-theme-sakura/)
 
