@@ -2,7 +2,7 @@
   <div class="toc-container">
     <div class="toc">
       <ol>
-        <li v-for="h, i in props.data">
+        <li v-for="h, i in props.data" :class="'h' + h.level">
           <a :href="'#' + h.slug" :class="{ 'active': active == i }">{{ h.title }}</a>
         </li>
       </ol>
@@ -60,6 +60,12 @@ const props = defineProps({
         background-color: var(--color-accent);
       }
     }
+  }
+  .h3 {
+    padding-left: 0.5em;
+  }
+  .h4 {
+    padding-left: 1em;
   }
 }
 @media (max-width: 720px) {
