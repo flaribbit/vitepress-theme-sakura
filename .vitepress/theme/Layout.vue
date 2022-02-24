@@ -32,7 +32,8 @@ html {
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --color-accent: #fe9600;
   --color-gray: #666;
-  --color-bg: #eee;
+  --color-text: #02111d;
+  --color-background: #eee;
   --color-border: #d0d7de;
   --code-line-height: 24px;
   --code-font-family: monospace;

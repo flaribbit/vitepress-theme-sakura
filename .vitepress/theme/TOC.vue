@@ -44,10 +44,10 @@ const props = defineProps({
     margin-bottom: 0.2em;
   }
   a {
-    color: #02111d;
+    color: var(--color-text);
     &:before {
       content: "";
-      background-color: var(--color-bg);
+      background-color: var(--color-background);
       position: absolute;
       display: inline-block;
       left: 8px;

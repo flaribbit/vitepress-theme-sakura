@@ -166,7 +166,7 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
   }
 }
 .content {
-  color: #02111d;
+  color: var(--color-text);
   a {
     color: #e58700;
     position: relative;
