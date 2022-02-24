@@ -22,6 +22,7 @@
       </span>
     </div>
     <Waline v-if="index != -1" ref="waline" />
+    <TOC :data="data.page.value.headers" />
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import { useData, useRoute } from 'vitepress'
 import { onMounted, onUnmounted, ref, reactive, watch } from 'vue'
 import { data as posts } from '../posts.data'
 import Waline from './Waline.vue'
+import TOC from './TOC.vue'
 
 const data = useData()
 const base = data.site.value.base
@@ -152,6 +154,7 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
   }
 }
 .article {
+  position: relative;
   max-width: 800px;
   margin: auto;
   .content {
