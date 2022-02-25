@@ -3,10 +3,10 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    minify: 'terser',
+    outDir: '../dist',
     lib: {
       formats: ['es'],
-      entry: 'lib.ts',
+      entry: '../lib.ts',
       fileName: (format) => `lib.${format}.js`
     },
     rollupOptions: {

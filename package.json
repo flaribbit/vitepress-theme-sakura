@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "serve": "vitepress serve"
+    "serve": "vitepress serve",
+    "lib:build": "vite build ./build"
   },
   "name": "vitepress-theme-sakura",
   "version": "0.1.6",
@@ -20,11 +21,12 @@
   "license": "ISC",
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "sass": "^1.49.7",
     "vitepress": "^0.21.6"
   },
   "devDependencies": {
-    "vue": "^3"
+    "sass": "^1.49.7",
+    "vite": "^2.8.4",
+    "vue": "^3.2.29"
   },
   "bugs": {
     "url": "https://github.com/flaribbit/vitepress-theme-sakura/issues"
