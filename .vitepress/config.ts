@@ -22,7 +22,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   themeConfig: {
     name: 'flaribbit',
-    cover: 'https://www.dmoe.cc/random.php',
+    cover: 'https://tva3.sinaimg.cn/large/0072Vf1pgy1foxk6pmjkjj31kw0w0b0v.jpg',
     social: [
       { icon: 'fa-github', url: 'github.com' },
       { icon: 'fa-twitter', url: 'twitter.com' },
