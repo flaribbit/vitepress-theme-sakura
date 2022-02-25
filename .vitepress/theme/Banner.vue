@@ -47,12 +47,12 @@ const cover = themeConfig.cover
     bottom: 0;
   }
   .wave1 {
-    background: url(./assets/wave1.png) repeat-x;
+    background: url(https://cdn.jsdelivr.net/npm/vitepress-theme-sakura/.vitepress/theme/assets/wave1.png) repeat-x;
     height: 65px;
     animation: wave-animation-1 30s infinite linear;
   }
   .wave2 {
-    background: url(./assets/wave2.png) repeat-x;
+    background: url(https://cdn.jsdelivr.net/npm/vitepress-theme-sakura/.vitepress/theme/assets/wave2.png) repeat-x;
     height: 80px;
     animation: wave-animation-2 20s infinite linear;
   }

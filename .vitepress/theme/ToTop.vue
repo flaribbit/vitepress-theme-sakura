@@ -36,7 +36,7 @@ onUnmounted(() => {
   height: 900px;
   right: 25px;
   z-index: 50;
-  background-image: url(./assets/scroll.png);
+  background-image: url(https://cdn.jsdelivr.net/npm/vitepress-theme-sakura/.vitepress/theme/assets/scroll.png);
   transition: top 0.5s ease-in-out;
   animation: float 2s ease-in-out infinite;
 }
