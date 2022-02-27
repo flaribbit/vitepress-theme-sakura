@@ -3,10 +3,11 @@
   <aside />
   <main>
     <ToTop />
-    <template v-if="isIndex">
+    <template v-if="path == ''">
       <Banner />
       <BlogList />
     </template>
+    <Tag v-else-if="path == 'tags/'" />
     <Article v-else />
   </main>
 </template>
@@ -16,13 +17,14 @@ import Header from './Header.vue'
 import Banner from './Banner.vue'
 import Article from './Article.vue'
 import BlogList from './BlogList.vue'
+import Tag from './Tag.vue'
 import ToTop from './ToTop.vue'
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 const base = useData().site.value.base
 const route = useRoute()
 if (!route.path.startsWith(base)) route.path = base.slice(0, -1) + route.path // dirty fix for https://github.com/vuejs/vitepress/issues/446
-const isIndex = computed(() => route.path.replace(/index.html$/, '') === base)
+const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
 
 </script>
 
