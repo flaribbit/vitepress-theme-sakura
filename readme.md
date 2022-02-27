@@ -96,6 +96,7 @@ tags: [标签1, 标签2]
 - [ ] latex 公式
 - [ ] 页脚
 - [ ] 搜索
+- [ ] PWA
 
 ## 感谢
 - [wordpress-theme-sakura](https://github.com/mashirozx/sakura)
