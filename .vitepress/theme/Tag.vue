@@ -17,8 +17,8 @@
 <script setup lang="ts">
 import BlogList from './BlogList.vue'
 import { data as posts, type PostData } from '../posts.data'
-import { ref } from 'vue'
-const active = ref(new URL(location.href).searchParams.get('q'))
+import { ref, onMounted } from 'vue'
+const active = ref<string | null>(null)
 const tagData: { [tag: string]: PostData[] } = {}
 const setTag = (tag: string) => {
   active.value = tag
@@ -31,6 +31,9 @@ for (const post of posts) {
     tagData[tag].push(post)
   }
 }
+onMounted(() => {
+  active.value = new URLSearchParams(location.search).get('q')
+})
 </script>
 
 <style lang="scss">
