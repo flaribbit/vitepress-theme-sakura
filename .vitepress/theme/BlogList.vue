@@ -4,7 +4,7 @@
       <i class="fa-solid fa-book"></i> 文章列表
       <hr />
     </div>
-    <div class="card" v-for="p in posts">
+    <div class="card" v-for="p in props.posts">
       <div class="image"></div>
       <div class="info">
         <div class="date">
@@ -31,9 +31,13 @@
 </template>
 
 <script setup lang="ts">
-import { data as posts } from '../posts.data'
+import { type PostData } from '../posts.data'
 import { useData } from 'vitepress'
+import { PropType } from 'vue'
 const base = useData().site.value.base
+const props = defineProps({
+  posts: { type: Array as PropType<PostData[]>, default: () => [] },
+})
 </script>
 
 <style lang="scss">

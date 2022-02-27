@@ -5,7 +5,7 @@
     <ToTop />
     <template v-if="path == ''">
       <Banner />
-      <BlogList />
+      <BlogList :posts="posts" />
     </template>
     <Tag v-else-if="path == 'tags/'" />
     <Article v-else />
@@ -21,6 +21,7 @@ import Tag from './Tag.vue'
 import ToTop from './ToTop.vue'
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
+import { data as posts } from '../posts.data'
 const base = useData().site.value.base
 const route = useRoute()
 if (!route.path.startsWith(base)) route.path = base.slice(0, -1) + route.path // dirty fix for https://github.com/vuejs/vitepress/issues/446

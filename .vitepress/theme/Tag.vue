@@ -10,10 +10,12 @@
         <span>{{ tag }}</span>
       </a>
     </div>
+    <BlogList :posts="active ? tagData[active] : []" />
   </div>
 </template>
 
 <script setup lang="ts">
+import BlogList from './BlogList.vue'
 import { data as posts, type PostData } from '../posts.data'
 import { ref } from 'vue'
 const active = ref(new URL(location.href).searchParams.get('q'))
