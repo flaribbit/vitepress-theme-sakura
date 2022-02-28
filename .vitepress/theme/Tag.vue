@@ -10,7 +10,7 @@
         <span>{{ tag }}</span>
       </a>
     </div>
-    <BlogList :posts="active ? tagData[active] : []" />
+    <BlogList :posts="active ? tagData[active] : []" :click="setTag" />
   </div>
 </template>
 

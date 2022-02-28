@@ -19,7 +19,13 @@
           {{ 114514 }} 阅读
         </div>-->
         <div class="content" v-html="p.excerpt"></div>
-        <div class="tags">
+        <div v-if="props.click" class="tags">
+          <a v-for="t in p.tags" href="#" @click="props.click(t)">
+            <i class="fa fa-tag"></i>
+            {{ t }}
+          </a>
+        </div>
+        <div v-else class="tags">
           <a v-for="t in p.tags" :href="base + 'tags/?q=' + t">
             <i class="fa fa-tag"></i>
             {{ t }}
@@ -37,6 +43,7 @@ import { PropType } from 'vue'
 const base = useData().site.value.base
 const props = defineProps({
   posts: { type: Array as PropType<PostData[]>, default: () => [] },
+  click: { type: Function, default: null },
 })
 </script>
 
