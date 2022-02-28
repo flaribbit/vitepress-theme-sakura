@@ -4,7 +4,7 @@
       <i class="fa-solid fa-book"></i> 文章列表
       <hr />
     </div>
-    <div class="card" v-for="p in props.posts">
+    <div class="card" v-for="p in posts">
       <div class="image"></div>
       <div class="info">
         <div class="date">
@@ -19,8 +19,8 @@
           {{ 114514 }} 阅读
         </div>-->
         <div class="content" v-html="p.excerpt"></div>
-        <div v-if="props.click" class="tags">
-          <a v-for="t in p.tags" href="#" @click="props.click(t)">
+        <div v-if="click" class="tags">
+          <a v-for="t in p.tags" href="#" @click="click(t)">
             <i class="fa fa-tag"></i>
             {{ t }}
           </a>
@@ -39,12 +39,11 @@
 <script setup lang="ts">
 import { type PostData } from '../posts.data'
 import { useData } from 'vitepress'
-import { PropType } from 'vue'
 const base = useData().site.value.base
-const props = defineProps({
-  posts: { type: Array as PropType<PostData[]>, default: () => [] },
-  click: { type: Function, default: null },
-})
+const { posts, click = null } = defineProps<{
+  posts: PostData[]
+  click?: (tag: string) => void
+}>()
 </script>
 
 <style lang="scss">

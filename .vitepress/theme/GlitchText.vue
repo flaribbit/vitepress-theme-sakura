@@ -3,12 +3,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  text: {
-    type: String,
-    default: 'Hello, sakura',
-  },
-})
+const { text = 'Hello, sakura' } = defineProps<{ text: string }>()
 </script>
 
 <style lang="scss">

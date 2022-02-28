@@ -2,7 +2,7 @@
   <div class="toc-container">
     <div class="toc">
       <ol>
-        <li v-for="h, i in props.data" :class="'h' + h.level">
+        <li v-for="h, i in data" :class="'h' + h.level">
           <a :href="'#' + h.slug" :class="{ 'active': active == i }">{{ h.title }}</a>
         </li>
       </ol>
@@ -12,11 +12,10 @@
 
 <script setup lang="ts">
 import { type Header } from 'vitepress'
-import { PropType } from 'vue'
-const props = defineProps({
-  data: { type: Array as PropType<Header[]>, default: () => [] },
-  active: { type: Number, default: 0 },
-})
+const { data = [], active = 0 } = defineProps<{
+  data: Header[]
+  active: number
+}>()
 </script>
 
 <style lang="scss">
