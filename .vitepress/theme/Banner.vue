@@ -24,7 +24,7 @@
 import { useData } from 'vitepress'
 import GlitchText from './GlitchText.vue'
 const themeConfig = useData().theme.value
-const hello = themeConfig.hello
+const hello = themeConfig.hello || 'Hello, sakura'
 const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
 const social = themeConfig.social || []
 const cover = themeConfig.cover
