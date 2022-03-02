@@ -1,12 +1,10 @@
 <template>
-  <div class="toc-container">
-    <div class="toc">
-      <ol>
-        <li v-for="h, i in data" :class="'h' + h.level">
-          <a :href="'#' + h.slug" :class="{ 'active': active == i }">{{ h.title }}</a>
-        </li>
-      </ol>
-    </div>
+  <div class="toc">
+    <ol>
+      <li v-for="h, i in data" :class="['h' + h.level, { 'active': active == i }]">
+        <a :href="'#' + h.slug">{{ h.title }}</a>
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -23,48 +21,38 @@ const { data = [], active = 0 } = defineProps<{
 //   border: 1px dashed red;
 //   background-color: rgba(255, 0, 0, 0.05);
 // }
-.toc-container {
+.toc {
   position: absolute;
   top: 0;
   left: 800px;
   height: 100%;
-}
-.toc {
-  position: sticky;
-  top: 80px;
-  width: 320px;
   ol {
-    position: relative;
+    position: sticky;
+    top: 80px;
+    width: 320px;
     list-style: none;
-    padding-inline-start: 1em;
-    overflow: hidden;
+    padding-inline-start: 0;
   }
   li {
-    margin-bottom: 0.2em;
-  }
-  a {
-    color: var(--color-text);
-    &:before {
-      content: "";
-      background-color: var(--color-background);
-      position: absolute;
-      display: inline-block;
-      left: 8px;
-      width: 2px;
-      height: 100%;
+    border-left: 2px solid var(--color-background);
+    a {
+      display: block;
+      color: var(--color-text);
+      padding-bottom: 0.2em;
     }
     &.active {
+      border-left-color: var(--color-accent);
       font-weight: bold;
-      &:before {
-        background-color: var(--color-accent);
-      }
     }
   }
+  .h2 {
+    padding-left: 8px;
+  }
   .h3 {
-    padding-left: 0.5em;
+    padding-left: 16px;
   }
   .h4 {
-    padding-left: 1em;
+    padding-left: 24px;
   }
 }
 @media (max-width: 720px) {
