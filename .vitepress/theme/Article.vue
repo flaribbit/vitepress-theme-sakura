@@ -211,6 +211,9 @@ onUnmounted(() => {
     line-height: 1.7em;
   }
 }
+.katex-display {
+  overflow: scroll hidden;
+}
 @media (max-width: 720px) {
   .abanner {
     height: 200px;
