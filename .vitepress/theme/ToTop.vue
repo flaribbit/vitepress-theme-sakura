@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="totop" @click="toTop" :style="style"></a>
+  <a href="#" class="totop" @click="toTop" :style="style" aria-label="to-top"></a>
 </template>
 
 <script setup lang="ts">

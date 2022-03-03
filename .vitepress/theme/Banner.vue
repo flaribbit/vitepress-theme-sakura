@@ -11,7 +11,7 @@
           <i class="fa fa-quote-right"></i>
         </p>
         <div class="contact">
-          <a :href="s.url" v-for="s in social">
+          <a :href="s.url" v-for="s in social" aria-label="icon">
             <i :class="['fab', s.icon]"></i>
           </a>
         </div>
