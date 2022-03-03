@@ -97,9 +97,11 @@ const setActiveLink = () => {
         hash = '#' + headers[i - 1].slug
       }
       history.replaceState(null, document.title, hash)
-      break
+      return
     }
   }
+  active.value = headers.length - 1
+  history.replaceState(null, document.title, '#' + headers[headers.length - 1].slug)
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 const updateKatex = () => {
