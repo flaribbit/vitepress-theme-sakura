@@ -56,7 +56,7 @@ const { data = [], active = 0 } = defineProps<{
   }
 }
 @media (max-width: 720px) {
-  .toc-container {
+  .toc {
     display: none;
   }
 }
