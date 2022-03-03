@@ -87,6 +87,7 @@ watch(route, update)
 
 const setActiveLink = () => {
   const headers = data.page.value.headers
+  if (headers.length == 0) return
   for (let i = 0; i < headers.length; i++) {
     const el = document.getElementById(headers[i].slug)
     const rect = el?.getBoundingClientRect()!
