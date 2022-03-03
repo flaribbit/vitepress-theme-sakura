@@ -26,9 +26,13 @@
   </div>
 </template>
 
+<script lang="ts">
+declare const renderMathInElement: any;
+</script>
+
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
-import { onMounted, onUnmounted, ref, reactive, watch } from 'vue'
+import { onMounted, onUnmounted, ref, reactive, watch, nextTick } from 'vue'
 import { data as posts } from '../posts.data'
 import { throttleAndDebounce } from './utils'
 import Waline from './Waline.vue'
@@ -71,6 +75,12 @@ const update = () => {
   } else {
     nav[1].show = false
   }
+  // web only, not support in SSR
+  if (typeof window !== 'undefined') {
+    nextTick().then(() => {
+      updateKatex()
+    })
+  }
 }
 update()
 watch(route, update)
@@ -92,6 +102,17 @@ const setActiveLink = () => {
   }
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
+const updateKatex = () => {
+  if (!renderMathInElement) return
+  const el = document.querySelector('.article .content')
+  if (!el) return
+  renderMathInElement(el, {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '$', right: '$', display: false },
+    ],
+  })
+}
 onMounted(() => {
   setActiveLink()
   window.addEventListener('scroll', onScroll)
