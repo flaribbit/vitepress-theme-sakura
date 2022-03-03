@@ -31,6 +31,7 @@ const cover = themeConfig.cover
 </script>
 
 <style lang="scss">
+@import "./base.scss";
 .banner {
   background-size: cover;
   background-position: center center;
@@ -47,12 +48,12 @@ const cover = themeConfig.cover
     bottom: 0;
   }
   .wave1 {
-    background: url(https://cdn.jsdelivr.net/npm/vitepress-theme-sakura/.vitepress/theme/assets/wave1.png) repeat-x;
+    background: url($theme-base+"assets/wave1.png") repeat-x;
     height: 65px;
     animation: wave-animation-1 30s infinite linear;
   }
   .wave2 {
-    background: url(https://cdn.jsdelivr.net/npm/vitepress-theme-sakura/.vitepress/theme/assets/wave2.png) repeat-x;
+    background: url($theme-base+"assets/wave2.png") repeat-x;
     height: 80px;
     animation: wave-animation-2 20s infinite linear;
   }
