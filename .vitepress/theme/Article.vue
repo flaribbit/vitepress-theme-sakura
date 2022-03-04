@@ -213,7 +213,13 @@ onUnmounted(() => {
   }
 }
 .katex-display {
-  overflow: scroll hidden;
+  overflow-x: scroll unset;
+}
+@media (max-width: 1000px) and (min-width: 720px) {
+  .article,
+  .abanner .titlebox {
+    max-width: 80%;
+  }
 }
 @media (max-width: 720px) {
   .abanner {

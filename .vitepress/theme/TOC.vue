@@ -24,12 +24,12 @@ const { data = [], active = 0 } = defineProps<{
 .toc {
   position: absolute;
   top: 0;
-  left: 800px;
+  right: -320px;
   height: 100%;
+  width: 320px;
   ol {
     position: sticky;
     top: 80px;
-    width: 320px;
     list-style: none;
     padding-inline-start: 0;
   }
@@ -55,7 +55,7 @@ const { data = [], active = 0 } = defineProps<{
     padding-left: 24px;
   }
 }
-@media (max-width: 720px) {
+@media (max-width: 1440px) {
   .toc {
     display: none;
   }
