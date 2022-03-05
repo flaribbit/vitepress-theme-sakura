@@ -87,7 +87,7 @@ function math_inline(state: any, silent: boolean) {
     if (!silent) {
         token = state.push('math_inline', 'math', 0);
         token.markup = "$";
-        token.content = state.src.slice(start, match);
+        token.content = state.src.slice(start - 1, match + 1);
     }
 
     state.pos = match + 1;
@@ -102,13 +102,13 @@ function math_block(state: any, start: number, end: number, silent: boolean) {
     if (pos + 2 > max) { return false; }
     if (state.src.slice(pos, pos + 2) !== '$$') { return false; }
 
-    pos += 2;
+    // pos += 2;
     firstLine = state.src.slice(pos, max);
 
     if (silent) { return true; }
     if (firstLine.trim().slice(-2) === '$$') {
         // Single line expression
-        firstLine = firstLine.trim().slice(0, -2);
+        firstLine = firstLine.trim();
         found = true;
     }
 
@@ -127,7 +127,7 @@ function math_block(state: any, start: number, end: number, silent: boolean) {
         }
 
         if (state.src.slice(pos, max).trim().slice(-2) === '$$') {
-            lastPos = state.src.slice(0, max).lastIndexOf('$$');
+            lastPos = state.src.slice(0, max).lastIndexOf('$$') + 2;
             lastLine = state.src.slice(pos, lastPos);
             found = true;
         }
@@ -151,10 +151,10 @@ export default function (md: any) {
         return latex.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     }
     var inlineRenderer = function (tokens: any, idx: string) {
-        return fixKatex('$' + tokens[idx].content + '$');
+        return fixKatex(tokens[idx].content);
     }
     var blockRenderer = function (tokens: any, idx: string) {
-        return fixKatex('$$' + tokens[idx].content.trim() + '$$\n');
+        return fixKatex(tokens[idx].content);
     }
     md.inline.ruler.after('escape', 'math_inline', math_inline);
     md.block.ruler.after('blockquote', 'math_block', math_block, {
