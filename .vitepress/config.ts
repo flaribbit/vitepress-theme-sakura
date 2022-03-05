@@ -1,4 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
+import fixKatex from './theme/fix-katex'
 export interface ThemeConfig {
   name?: string,
   cover?: string,
@@ -24,7 +25,10 @@ export default defineConfigWithTheme<ThemeConfig>({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
   ],
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    config: (md) => {
+      md.use(fixKatex)
+    }
   },
   themeConfig: {
     name: 'flaribbit',
