@@ -1,5 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
-import * as fixKatex from './fix-katex'
+import fixKatex from './fix-katex'
 export interface ThemeConfig {
   name?: string,
   cover?: string,
@@ -26,7 +26,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   ],
   markdown: {
     lineNumbers: true,
-    config: (md) => {
+    config: md => {
       md.use(fixKatex)
     }
   },
