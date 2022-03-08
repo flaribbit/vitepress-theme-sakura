@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@vitejs/plugin-vue': ^2.2.4
   gray-matter: ^4.0.3
   sass: ^1.49.7
   vite: ^2.8.4
@@ -12,6 +13,7 @@ dependencies:
   vitepress: 0.21.6_sass@1.49.7
 
 devDependencies:
+  '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.2.4_vite@2.8.4+vue@3.2.29
   sass: 1.49.7
   vite: registry.npmmirror.com/vite/2.8.4_sass@1.49.7
   vue: 3.2.29
@@ -162,17 +164,6 @@ packages:
       algoliasearch: 4.12.1
     transitivePeerDependencies:
       - '@algolia/client-search'
-    dev: false
-
-  /@vitejs/plugin-vue/2.1.0_vite@2.8.4+vue@3.2.29:
-    resolution: {integrity: sha512-AZ78WxvFMYd8JmM/GBV6a6SGGTU0GgN/0/4T+FnMMsLzFEzTeAUwuraapy50ifHZsC+G5SvWs86bvaCPTneFlA==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      vite: ^2.5.10
-      vue: ^3.2.25
-    dependencies:
-      vite: registry.npmmirror.com/vite/2.8.4_sass@1.49.7
-      vue: 3.2.29
     dev: false
 
   /@vue/compiler-core/3.2.29:
@@ -496,7 +487,7 @@ packages:
     dependencies:
       '@docsearch/css': 3.0.0-alpha.50
       '@docsearch/js': 3.0.0-alpha.50
-      '@vitejs/plugin-vue': 2.1.0_vite@2.8.4+vue@3.2.29
+      '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.2.4_vite@2.8.4+vue@3.2.29
       prismjs: 1.26.0
       vite: registry.npmmirror.com/vite/2.8.4_sass@1.49.7
       vue: 3.2.29
@@ -518,6 +509,19 @@ packages:
       '@vue/runtime-dom': 3.2.29
       '@vue/server-renderer': 3.2.29_vue@3.2.29
       '@vue/shared': 3.2.29
+
+  registry.npmmirror.com/@vitejs/plugin-vue/2.2.4_vite@2.8.4+vue@3.2.29:
+    resolution: {integrity: sha512-ev9AOlp0ljCaDkFZF3JwC/pD2N4Hh+r5srl5JHM6BKg5+99jiiK0rE/XaRs3pVm1wzyKkjUy/StBSoXX5fFzcw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitejs/plugin-vue/-/plugin-vue-2.2.4.tgz}
+    id: registry.npmmirror.com/@vitejs/plugin-vue/2.2.4
+    name: '@vitejs/plugin-vue'
+    version: 2.2.4
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      vite: ^2.5.10
+      vue: ^3.2.25
+    dependencies:
+      vite: registry.npmmirror.com/vite/2.8.4_sass@1.49.7
+      vue: 3.2.29
 
   registry.npmmirror.com/esbuild-android-arm64/0.14.23:
     resolution: {integrity: sha512-k9sXem++mINrZty1v4FVt6nC5BQCFG4K2geCIUUqHNlTdFnuvcqsY7prcKZLFhqVC1rbcJAr9VSUGFL/vD4vsw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-android-arm64/-/esbuild-android-arm64-0.14.23.tgz}

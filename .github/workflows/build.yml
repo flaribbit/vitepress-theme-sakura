@@ -26,6 +26,10 @@ jobs:
         git add -A
         git commit -m autobuild
         git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git gh-pages
+    - name: build library
+      shell: bash
+      run: |
+        npm run lib:build
     - uses: JS-DevTools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}

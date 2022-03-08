@@ -8,7 +8,7 @@ for rendering output.
 
 // Test if potential opening or closing delimieter
 // Assumes that there is a "$" at state.src[pos]
-function isValidDelim(state: any, pos: number) {
+function isValidDelim(state, pos) {
     var prevChar, nextChar,
         max = state.posMax,
         can_open = true,
@@ -33,7 +33,7 @@ function isValidDelim(state: any, pos: number) {
     };
 }
 
-function math_inline(state: any, silent: boolean) {
+function math_inline(state, silent) {
     var start, match, token, res, pos, esc_count;
 
     if (state.src[state.pos] !== "$") { return false; }
@@ -94,7 +94,7 @@ function math_inline(state: any, silent: boolean) {
     return true;
 }
 
-function math_block(state: any, start: number, end: number, silent: boolean) {
+function math_block(state, start, end, silent) {
     var firstLine, lastLine, next, lastPos, found = false, token,
         pos = state.bMarks[start] + state.tShift[start],
         max = state.eMarks[start]
@@ -146,14 +146,14 @@ function math_block(state: any, start: number, end: number, silent: boolean) {
     return true;
 }
 
-export default function (md: any) {
-    var fixKatex = function (latex: string) {
-        return latex.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+module.exports = function (md) {
+    var fixKatex = function (latex) {
+        return latex.replace(/</g, '&lt;').replace(/>/g, '&gt;')
     }
-    var inlineRenderer = function (tokens: any, idx: string) {
+    var inlineRenderer = function (tokens, idx) {
         return fixKatex(tokens[idx].content);
     }
-    var blockRenderer = function (tokens: any, idx: string) {
+    var blockRenderer = function (tokens, idx) {
         return fixKatex(tokens[idx].content);
     }
     md.inline.ruler.after('escape', 'math_inline', math_inline);

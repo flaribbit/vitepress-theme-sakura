@@ -21,18 +21,27 @@ pnpm add vitepress vitepress-theme-sakura sass
 
 `.vitepress/config.ts`
 ```ts
-import { ThemeConfig } from 'vitepress-theme-sakura'
+import { type ThemeConfig } from 'vitepress-theme-sakura'
 import { defineConfigWithTheme } from 'vitepress'
+import fixKatex from 'vitepress-theme-sakura/.vitepress/fix-katex'
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
+  title: 'xxx的小站',
   head: [
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@waline/client' }],
+    // 字体支持
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Serif+SC' }]
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Serif+SC' }],
+    // waline
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@waline/client@1.5.4/dist/Waline.min.js' }],
+    // katex
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js' }],
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
   ],
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    config: md => { md.use(fixKatex) }
   },
   themeConfig: {
     // ...
@@ -44,7 +53,18 @@ export default defineConfigWithTheme<ThemeConfig>({
 
 `.vitepress/theme/index.ts`
 ```ts
-export { default } from 'vitepress-theme-sakura'
+import { type EnhanceAppContext } from 'vitepress'
+import { Layout } from 'vitepress-theme-sakura'
+import 'vitepress-theme-sakura/dist/style.css'
+
+export default {
+  Layout,
+  NotFound: () => 'custom 404', // <- this is a Vue 3 functional component
+  enhanceApp({ app, router, siteData }: EnhanceAppContext) {
+    // app is the Vue 3 app instance from `createApp()`. router is VitePress'
+    // custom router. `siteData`` is a `ref`` of current site-level metadata.
+  }
+}
 ```
 
 然后创建 `posts` 目录，编写 markdown 文件保存到 `posts` 目录中。
