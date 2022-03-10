@@ -4,8 +4,7 @@
       <a
         :class="['item', { 'active': active == tag }]"
         href="#"
-        v-for="_, tag in tagData"
-        @click="setTag(tag as string)"
+        @click="setTag(tag)"
       >
         <span>{{ tag }}</span>
       </a>
@@ -19,7 +18,7 @@ import BlogList from './BlogList.vue'
 import { data as posts, type PostData } from '../posts.data'
 import { ref, onMounted } from 'vue'
 const active = ref<string | null>(null)
-const tagData: { [tag: string]: PostData[] } = {}
+const tagData: Record<string, PostData[]> = {}
 const setTag = (tag: string) => {
   active.value = tag
   history.replaceState(null, document.title, '?q=' + tag)
