@@ -1,7 +1,7 @@
 <template>
   <div class="toc">
     <ol>
-      <li v-for="h, i in data" :class="['h' + h.level, { 'active': active == i }]">
+      <li v-for="(h, i) in data" :class="['h' + h.level, { 'active': active === i }]">
         <a :href="'#' + h.slug">{{ h.title }}</a>
       </li>
     </ol>

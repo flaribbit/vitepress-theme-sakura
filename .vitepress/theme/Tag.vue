@@ -2,8 +2,9 @@
   <div class="tag">
     <div class="article">
       <a
-        :class="['item', { 'active': active == tag }]"
+        :class="['item', { 'active': active === tag }]"
         href="#"
+        v-for="(_, tag) in tagData"
         @click="setTag(tag)"
       >
         <span>{{ tag }}</span>

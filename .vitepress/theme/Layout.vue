@@ -3,11 +3,11 @@
   <aside />
   <main>
     <ToTop />
-    <template v-if="path == ''">
+    <template v-if="path === ''">
       <Banner />
       <BlogList :posts="posts" />
     </template>
-    <Tag v-else-if="path == 'tags/'" />
+    <Tag v-else-if="path === 'tags/'" />
     <Article v-else />
   </main>
 </template>
