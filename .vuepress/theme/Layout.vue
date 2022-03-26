@@ -1,6 +1,7 @@
 <template>
+  <div>114514</div>
   <Header />
-  <aside />
+  <!-- <aside />
   <main>
     <ToTop />
     <template v-if="path === ''">
@@ -9,18 +10,18 @@
     </template>
     <Tag v-else-if="path === 'tags/'" />
     <Article v-else />
-  </main>
+  </main>-->
 </template>
 
 <script setup lang="ts">
 import Header from './Header.vue'
 import Banner from './Banner.vue'
-import Article from './Article.vue'
-import BlogList from './BlogList.vue'
-import Tag from './Tag.vue'
-import ToTop from './ToTop.vue'
-import { computed } from 'vue'
-import { useRoute, useData } from 'vuepress'
+// import Article from './Article.vue'
+// import BlogList from './BlogList.vue'
+// import Tag from './Tag.vue'
+// import ToTop from './ToTop.vue'
+// import { computed } from 'vue'
+// import { useRoute, useData } from 'vuepress'
 // import { data as posts } from '../posts.data'
 // const posts = []
 // const base = useData().site.value.base

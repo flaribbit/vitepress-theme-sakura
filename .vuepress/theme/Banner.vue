@@ -21,9 +21,10 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vuepress'
+import { themeData } from '@vuepress/plugin-theme-data/lib/client'
 import GlitchText from './GlitchText.vue'
-const themeConfig = useData().theme.value
+const themeConfig = themeData.value
+console.log(themeConfig)
 const hello = themeConfig.hello || 'Hello, sakura'
 const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
 const social = themeConfig.social || []

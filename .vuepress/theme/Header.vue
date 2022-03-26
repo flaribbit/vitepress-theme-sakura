@@ -25,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vuepress'
-const base = useData().site.value.base
+import { siteData } from '@vuepress/client'
+const base = siteData.value.base
 interface MenuItem { icon: string, name: string, url: string }
 const menu: MenuItem[] = [
   { icon: 'fa-home', name: '首页', url: '' },

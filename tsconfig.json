@@ -7,6 +7,6 @@
     "moduleResolution": "node"
   },
   "include": [
-    ".vitepress/theme/**/*"
+    ".vuepress/theme/**/*"
   ]
 }
