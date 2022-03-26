@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData } from 'vuepress'
 const base = useData().site.value.base
 interface MenuItem { icon: string, name: string, url: string }
 const menu: MenuItem[] = [

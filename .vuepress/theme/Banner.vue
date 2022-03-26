@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData } from 'vuepress'
 import GlitchText from './GlitchText.vue'
 const themeConfig = useData().theme.value
 const hello = themeConfig.hello || 'Hello, sakura'

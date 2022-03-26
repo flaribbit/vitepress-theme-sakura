@@ -20,12 +20,13 @@ import BlogList from './BlogList.vue'
 import Tag from './Tag.vue'
 import ToTop from './ToTop.vue'
 import { computed } from 'vue'
-import { useRoute, useData } from 'vitepress'
-import { data as posts } from '../posts.data'
-const base = useData().site.value.base
-const route = useRoute()
-if (!route.path.startsWith(base)) route.path = base.slice(0, -1) + route.path // dirty fix for https://github.com/vuejs/vitepress/issues/446
-const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
+import { useRoute, useData } from 'vuepress'
+// import { data as posts } from '../posts.data'
+// const posts = []
+// const base = useData().site.value.base
+// const route = useRoute()
+// if (!route.path.startsWith(base)) route.path = base.slice(0, -1) + route.path // dirty fix for https://github.com/vuejs/vitepress/issues/446
+// const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
 
 </script>
 

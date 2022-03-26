@@ -31,7 +31,7 @@ declare const renderMathInElement: any;
 </script>
 
 <script setup lang="ts">
-import { useData, useRoute } from 'vitepress'
+import { useData, useRoute } from 'vuepress'
 import { onMounted, onUnmounted, ref, reactive, watch, nextTick } from 'vue'
 import { data as posts } from '../posts.data'
 import { throttleAndDebounce } from './utils'

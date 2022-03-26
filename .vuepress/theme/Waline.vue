@@ -8,7 +8,7 @@ declare const Waline: any;
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useData } from 'vitepress'
+import { useData } from 'vuepress'
 let waline: any = null
 onMounted(() => {
   const serverURL = useData().site.value.themeConfig.waline

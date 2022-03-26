@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { type PostData } from '../posts.data'
-import { useData } from 'vitepress'
+import { useData } from 'vuepress'
 const base = useData().site.value.base
 const { posts, click = null } = defineProps<{
   posts: PostData[]
