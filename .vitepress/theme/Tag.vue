@@ -1,12 +1,7 @@
 <template>
   <div class="tag">
     <div class="article">
-      <a
-        :class="['item', { 'active': active === tag }]"
-        href="#"
-        v-for="(_, tag) in tagData"
-        @click="setTag(tag)"
-      >
+      <a :class="['item', { 'active': active === tag }]" href="#" v-for="(_, tag) in tagData" @click="setTag(tag)">
         <span>{{ tag }}</span>
       </a>
     </div>
@@ -39,14 +34,16 @@ onMounted(() => {
 <style lang="scss">
 .tag {
   margin-top: 64px;
+
   .item {
     display: inline-block;
-    padding: 8px 16px;
-    margin: 0 4px;
+    padding: 6px 12px;
+    margin: 4px;
     border-radius: 40px;
     color: var(--color-gray);
     border: 1px solid var(--color-border);
     transition: all 0.2s ease-out;
+
     &:hover,
     &.active {
       color: var(--color-accent);
