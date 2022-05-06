@@ -224,12 +224,16 @@ onUnmounted(() => {
   }
 
   p {
-    line-height: 1.7em;
+    line-height: 1.5em;
+  }
+
+  li {
+    margin-block-end: 0.3em;
   }
 }
 
 .katex-display {
-  overflow-x: scroll;
+  overflow: auto hidden;
 }
 
 @media (max-width: 800px) {
