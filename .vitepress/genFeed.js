@@ -21,7 +21,7 @@ resolveSiteData('.').then(siteData => {
   })
 
   load(true).forEach((post) => {
-    const file = path.resolve(cwd, `dist/${post.href}`)
+    const file = path.resolve(cwd, `.vitepress/dist/${post.href}`)
     const rendered = fs.readFileSync(file, 'utf-8')
     const content = rendered.match(
       /<main>([\s\S]*)<\/main>/
@@ -45,5 +45,5 @@ resolveSiteData('.').then(siteData => {
     })
   })
 
-  fs.writeFileSync(path.resolve(cwd, 'dist/feed.rss'), feed.rss2())
+  fs.writeFileSync(path.resolve(cwd, '.vitepress/dist/feed.rss'), feed.rss2())
 })

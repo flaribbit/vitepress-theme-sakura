@@ -6,7 +6,7 @@
     "lib:build": "node ./build"
   },
   "name": "vitepress-theme-sakura",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "vitepress-theme-sakura",
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
@@ -22,12 +22,12 @@
   "dependencies": {
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "vitepress": "^0.21.6"
+    "vitepress": "^0.22.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.2.4",
+    "@vitejs/plugin-vue": "^2.3.3",
     "sass": "^1.49.7",
-    "vite": "^2.8.4",
+    "vite": "^2.9.9",
     "vue": "^3.2.29"
   },
   "bugs": {
@@ -40,6 +40,7 @@
   "files": [
     "dist",
     ".vitepress/fix-katex.js",
+    ".vitepress/genFeed.js",
     ".vitepress/posts.data.js",
     ".vitepress/posts.data.d.ts",
     ".vitepress/theme/assets"
