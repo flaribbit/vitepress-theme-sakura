@@ -4,6 +4,9 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "types": [
+      "vite/client"
+    ],
     "moduleResolution": "node"
   },
   "include": [
