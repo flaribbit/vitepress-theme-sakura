@@ -21,7 +21,7 @@ pnpm add vitepress vitepress-theme-sakura sass
 
 `.vitepress/config.ts`
 ```ts
-import { type ThemeConfig } from 'vitepress-theme-sakura'
+import { type ThemeConfig } from 'vitepress-theme-sakura/.vitepress/config'
 import { defineConfigWithTheme } from 'vitepress'
 import fixKatex from 'vitepress-theme-sakura/.vitepress/fix-katex'
 export default defineConfigWithTheme<ThemeConfig>({
@@ -54,8 +54,8 @@ export default defineConfigWithTheme<ThemeConfig>({
 `.vitepress/theme/index.ts`
 ```ts
 import { type EnhanceAppContext } from 'vitepress'
-import { Layout } from 'vitepress-theme-sakura'
-import 'vitepress-theme-sakura/dist/style.css'
+// @ts-ignore
+import Layout from 'vitepress-theme-sakura'
 
 export default {
   Layout,

@@ -6,12 +6,12 @@
     "lib:build": "node ./build"
   },
   "name": "vitepress-theme-sakura",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "vitepress-theme-sakura",
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
   },
-  "main": "./dist/lib.js",
+  "main": ".vitepress/theme/Layout.vue",
   "keywords": [
     "vitepress",
     "theme",
@@ -41,11 +41,9 @@
     "registry": "https://registry.npmjs.org"
   },
   "files": [
-    "dist",
     ".vitepress/fix-katex.js",
     ".vitepress/genFeed.js",
     ".vitepress/posts.data.js",
-    ".vitepress/posts.data.d.ts",
-    ".vitepress/theme/assets"
+    ".vitepress/theme"
   ]
 }
