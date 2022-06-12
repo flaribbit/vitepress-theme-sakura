@@ -11,7 +11,7 @@
           <i class="fa fa-quote-right"></i>
         </p>
         <div class="contact">
-          <a :href="s.url" v-for="s in social" aria-label="icon">
+          <a :href="s.url" v-for="s in social" aria-label="icon" target="_blank">
             <i :class="['fab', s.icon]"></i>
           </a>
         </div>
@@ -32,6 +32,7 @@ const cover = themeConfig.cover
 
 <style lang="scss">
 @import "./base.scss";
+
 .banner {
   background-size: cover;
   background-position: center center;
@@ -41,22 +42,26 @@ const cover = themeConfig.cover
   display: flex;
   justify-content: center;
   align-items: center;
+
   .wave1,
   .wave2 {
     position: absolute;
     width: 400%;
     bottom: 0;
   }
+
   .wave1 {
     background: url($theme-base+"assets/wave1.png") repeat-x;
     height: 65px;
     animation: wave-animation-1 30s infinite linear;
   }
+
   .wave2 {
     background: url($theme-base+"assets/wave2.png") repeat-x;
     height: 80px;
     animation: wave-animation-2 20s infinite linear;
   }
+
   .info {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -64,6 +69,7 @@ const cover = themeConfig.cover
     flex-direction: column;
     align-items: center;
   }
+
   .box {
     display: inline-block;
     width: 600px;
@@ -72,47 +78,57 @@ const cover = themeConfig.cover
     border-radius: 16px;
     margin-top: 16px;
   }
+
   .text {
     text-align: center;
     font-size: 16px;
     line-height: 24px;
   }
+
   .contact {
     display: flex;
     justify-content: center;
     font-size: 24px;
     padding-bottom: 12px;
+
     a {
       color: white;
       margin: 6px;
     }
   }
 }
+
 @media (max-width: 720px) {
   .banner {
     .info {
       margin: 0 0.5em;
     }
+
     .box {
       width: 100%;
     }
+
     .text {
       margin: 1em 0.5em;
     }
   }
 }
+
 @keyframes wave-animation-1 {
   0% {
     left: 0;
   }
+
   100% {
     left: -997px;
   }
 }
+
 @keyframes wave-animation-2 {
   0% {
     left: 0;
   }
+
   100% {
     left: -1009px;
   }
