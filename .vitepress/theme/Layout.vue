@@ -22,11 +22,14 @@ import ToTop from './ToTop.vue'
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 import { data as posts } from '../posts.data'
+import { addStyle } from './utils'
 const base = useData().site.value.base
 const route = useRoute()
 if (!route.path.startsWith(base)) route.path = base.slice(0, -1) + route.path // dirty fix for https://github.com/vuejs/vitepress/issues/446
 const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
-
+addStyle('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css')
+addStyle('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css')
+addStyle('https://fonts.googleapis.com/css?family=Noto+Serif+SC')
 </script>
 
 <style lang="scss">
@@ -42,6 +45,7 @@ html {
   --code-font-family: monospace;
   --code-font-size: 15px;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -49,23 +53,29 @@ body {
   font-size: 16px;
   overflow-x: hidden;
 }
+
 * {
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
 }
+
 hr {
   border: none;
   border-bottom: 1px dashed var(--color-border);
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background: var(--color-accent);

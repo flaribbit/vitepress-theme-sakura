@@ -34,7 +34,7 @@ declare const renderMathInElement: any;
 import { useData, useRoute } from 'vitepress'
 import { onMounted, onUnmounted, ref, reactive, watch, nextTick } from 'vue'
 import { data as posts } from '../posts.data'
-import { throttleAndDebounce } from './utils'
+import { throttleAndDebounce, addScript, addStyle } from './utils'
 import Waline from './Waline.vue'
 import TOC from './TOC.vue'
 
@@ -52,8 +52,8 @@ const nav = reactive([
   { href: '', text: '', show: true },
   { href: '', text: '', show: true },
 ])
-
 const index = ref(0)
+
 const update = () => {
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
   title.value = data.page.value.title
@@ -106,7 +106,10 @@ const setActiveLink = () => {
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 const updateKatex = () => {
-  if (!renderMathInElement) return
+  if (!(window.renderMathInElement && window.katex)) {
+    console.log('not ready')
+    return
+  }
   const el = document.querySelector('.article .content')
   if (!el) return
   renderMathInElement(el, {
@@ -119,6 +122,9 @@ const updateKatex = () => {
 onMounted(() => {
   setActiveLink()
   window.addEventListener('scroll', onScroll)
+  addStyle('https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css')
+  addScript('https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js', updateKatex)
+  addScript('https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js', updateKatex)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
