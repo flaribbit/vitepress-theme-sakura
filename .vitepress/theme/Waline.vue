@@ -16,19 +16,28 @@ onMounted(() => {
     console.error('未配置waline服务端地址')
     return
   }
+  if (import.meta.env.DEV) {
+    let el = document.querySelector<HTMLScriptElement>('script[src*="waline"]')
+    if (el) el.onload = () => init(serverURL)
+  } else {
+    init(serverURL)
+  }
+})
+const init = (serverURL: string) => {
   waline = Waline({
     el: '#waline',
     serverURL: serverURL,
   })
-})
+}
 const update = () => {
-  if (waline) waline.update()
+  waline?.update()
 }
 defineExpose({ update })
 </script>
 
 <style lang="scss">
 .v[data-class="v"] {
+
   label,
   .vinput,
   .veditor,

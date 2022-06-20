@@ -58,7 +58,7 @@ const update = () => {
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
   title.value = data.page.value.title
   cover.value = `background-image: url(${data.page.value.frontmatter.cover || "https://tva4.sinaimg.cn/large/0060lm7Tly1ftg6omnqa4j31hc0u010z.jpg"})`
-  date.value = new Date(data.page.value.lastUpdated).toLocaleDateString('sv-SE')
+  date.value = new Date(data.page.value.lastUpdated || '').toLocaleDateString('sv-SE')
   waline.value?.update()
   let ival = index.value
   if (ival - 1 >= 0) {
@@ -106,7 +106,7 @@ const setActiveLink = () => {
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 const updateKatex = () => {
-  if (!renderMathInElement) return
+  if (typeof renderMathInElement === 'undefined') return
   const el = document.querySelector('.article .content')
   if (!el) return
   renderMathInElement(el, {
@@ -119,6 +119,10 @@ const updateKatex = () => {
 onMounted(() => {
   setActiveLink()
   window.addEventListener('scroll', onScroll)
+  if (import.meta.env.DEV) {
+    let el = document.querySelector<HTMLScriptElement>('script[src*="auto-render"]')
+    if (el) el.onload = () => updateKatex()
+  }
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
