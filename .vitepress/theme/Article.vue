@@ -28,6 +28,7 @@
 
 <script lang="ts">
 declare const renderMathInElement: any;
+declare const katex: any;
 </script>
 
 <script setup lang="ts">
@@ -106,8 +107,8 @@ const setActiveLink = () => {
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 const updateKatex = () => {
-  if (!(window.renderMathInElement && window.katex)) {
-    console.log('not ready')
+  if (!(renderMathInElement && katex)) {
+    console.log('Katex not ready')
     return
   }
   const el = document.querySelector('.article .content')
@@ -117,15 +118,17 @@ const updateKatex = () => {
       { left: '$$', right: '$$', display: true },
       { left: '$', right: '$', display: false },
     ],
+    throwOnError: false,
   })
 }
 onMounted(() => {
   setActiveLink()
   window.addEventListener('scroll', onScroll)
-  addStyle('https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css')
-  addScript('https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js', updateKatex)
-  addScript('https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js', updateKatex)
+  addStyle('https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css')
+  addScript('https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js')
+  addScript('https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.js', updateKatex)
 })
+onMounted
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
