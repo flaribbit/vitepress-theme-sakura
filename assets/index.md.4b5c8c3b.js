@@ -1,0 +1,1 @@
+import{_ as e,c as t,o,a}from"./app.4a4ed403.js";const u='{"title":"Home","description":"","frontmatter":{"home":true},"headers":[],"relativePath":"index.md"}',n={},r=a("p",null,"index",-1),s=[r];function c(_,d,i,p,l,m){return o(),t("div",null,s)}var h=e(n,[["render",c]]);export{u as __pageData,h as default};
