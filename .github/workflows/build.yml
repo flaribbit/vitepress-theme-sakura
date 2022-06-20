@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     branches:
-      - '**'
+      - master
     tags-ignore:
       - '**'
 jobs:
@@ -16,25 +16,14 @@ jobs:
       run: |
         npm install
         npm run build
-    - uses: actions/checkout@v2
-      with:
-        ref: gh-pages
-        path: www
-    - name: Update github page
-      shell: bash
-      run: |
-        cd www
-        rm -rf assets posts tags
-        cp -rf ../.vitepress/dist/* .
-        git config --global user.email "1149761294@qq.com"
-        git config --global user.name "flaribbit"
+        cd .vitepress/dist
+        touch .nojekyll
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        git init
         git add -A
         git commit -m autobuild
-        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git gh-pages
-    - name: build library
-      shell: bash
-      run: |
-        npm run lib:build
+        git push -f https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git master:gh-pages
     - uses: JS-DevTools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
