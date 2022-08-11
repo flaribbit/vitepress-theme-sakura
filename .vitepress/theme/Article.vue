@@ -54,8 +54,6 @@ const nav = reactive([
   { href: '', text: '', show: true },
 ])
 
-console.log(posts)
-
 const index = ref(0)
 const update = () => {
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
