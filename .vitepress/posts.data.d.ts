@@ -1,7 +1,8 @@
 export interface PostData {
     title: string,
     href: string,
-    date: string,
+    create: number,
+    update: number,
     tags?: string[],
     cover?: string,
     excerpt: string,

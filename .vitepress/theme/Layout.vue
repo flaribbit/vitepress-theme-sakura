@@ -42,6 +42,7 @@ html {
   --code-font-family: monospace;
   --code-font-size: 15px;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -49,23 +50,29 @@ body {
   font-size: 16px;
   overflow-x: hidden;
 }
+
 * {
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
 }
+
 hr {
   border: none;
   border-bottom: 1px dashed var(--color-border);
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background: var(--color-accent);

@@ -28,6 +28,7 @@
 
 <script lang="ts">
 declare const renderMathInElement: any;
+declare const katex: any;
 </script>
 
 <script setup lang="ts">
@@ -53,12 +54,15 @@ const nav = reactive([
   { href: '', text: '', show: true },
 ])
 
+console.log(posts)
+
 const index = ref(0)
 const update = () => {
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
+  if (index.value == -1) return
   title.value = data.page.value.title
   cover.value = `background-image: url(${data.page.value.frontmatter.cover || "https://tva4.sinaimg.cn/large/0060lm7Tly1ftg6omnqa4j31hc0u010z.jpg"})`
-  date.value = new Date(data.page.value.lastUpdated || '').toLocaleDateString('sv-SE')
+  date.value = new Date(data.page.value.lastUpdated || posts[index.value].create).toLocaleDateString('sv-SE')
   waline.value?.update()
   let ival = index.value
   if (ival - 1 >= 0) {

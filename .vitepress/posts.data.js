@@ -16,7 +16,7 @@ module.exports = {
       .readdirSync(postDir)
       .filter((file) => file.endsWith('.md'))
       .map((file) => getPost(file, postDir, asFeed))
-      .sort((a, b) => b.date.time - a.date.time)
+      .sort((a, b) => b.create - a.create)
   }
 }
 
@@ -24,7 +24,7 @@ const cache = new Map()
 
 function getPost(file, postDir, asFeed = false) {
   const fullePath = path.join(postDir, file)
-  const timestamp = fs.statSync(fullePath).mtimeMs
+  const timestamp = fs.statSync(fullePath).mtimeMs | 0
 
   const cached = cache.get(fullePath)
   if (cached && timestamp === cached.timestamp) {
@@ -37,7 +37,8 @@ function getPost(file, postDir, asFeed = false) {
   const post = {
     title: data.title,
     href: `posts/${file.replace(/\.md$/, '.html')}`,
-    date: formatDate(data.date || timestamp),
+    create: +new Date(data.date) || timestamp,
+    update: timestamp,
     tags: data.tags,
     cover: data.cover,
     excerpt: md.render(excerpt)
@@ -53,13 +54,6 @@ function getPost(file, postDir, asFeed = false) {
     post
   })
   return post
-}
-
-function formatDate(date) {
-  if (!(date instanceof Date)) {
-    date = new Date(date)
-  }
-  return date.toLocaleDateString('sv-SE')
 }
 
 function checkTags() {
