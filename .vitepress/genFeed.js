@@ -5,10 +5,12 @@ const { load } = require('./posts.data')
 const { resolveSiteData } = require('vitepress')
 const url = `https://blog.vuejs.org`
 
-const cwd = process.cwd()
+genFeed()
 
-resolveSiteData('.').then(siteData => {
-
+async function genFeed() {
+  const siteData = await resolveSiteData('.')
+  const posts = await load(true)
+  const cwd = process.cwd()
   const feed = new Feed({
     title: siteData.title,
     description: siteData.description,
@@ -20,7 +22,7 @@ resolveSiteData('.').then(siteData => {
     copyright: siteData.themeConfig.name || '-',
   })
 
-  load(true).forEach((post) => {
+  posts.forEach((post) => {
     const file = path.resolve(cwd, `.vitepress/dist/${post.href}`)
     const rendered = fs.readFileSync(file, 'utf-8')
     const content = rendered.match(
@@ -46,4 +48,4 @@ resolveSiteData('.').then(siteData => {
   })
 
   fs.writeFileSync(path.resolve(cwd, '.vitepress/dist/feed.rss'), feed.rss2())
-})
+}
