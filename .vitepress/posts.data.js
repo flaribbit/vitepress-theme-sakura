@@ -5,24 +5,24 @@ const matter = require('gray-matter')
 const { createMarkdownRenderer } = require('vitepress')
 
 const cwd = process.cwd()
+const md = createMarkdownRenderer(cwd)
 
 module.exports = {
   watch: path.relative(__dirname, cwd + '/posts/*.md').replace(/\\/g, '/'),
-  async load(asFeed = false) {
-    const md = await createMarkdownRenderer(cwd)
+  load(asFeed = false) {
     const postDir = path.join(cwd, 'posts')
     checkTags()
     return fs
       .readdirSync(postDir)
       .filter((file) => file.endsWith('.md'))
-      .map((file) => getPost(md, file, postDir, asFeed))
+      .map((file) => getPost(file, postDir, asFeed))
       .sort((a, b) => b.create - a.create)
   }
 }
 
 const cache = new Map()
 
-function getPost(md, file, postDir, asFeed = false) {
+function getPost(file, postDir, asFeed = false) {
   const fullePath = path.join(postDir, file)
   const timestamp = fs.statSync(fullePath).mtimeMs | 0
 

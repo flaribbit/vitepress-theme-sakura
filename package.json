@@ -24,14 +24,14 @@
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {
-    "@types/react": "^18.0.14",
+    "@types/react": "^18.0.9",
     "@vitejs/plugin-vue": "^2.3.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.52.3",
-    "vite": "^2.9.12",
-    "vitepress": "^1.0.0-alpha.2",
-    "vue": "^3.2.37"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "sass": "^1.49.7",
+    "vite": "^2.9.9",
+    "vitepress": "^0.22.4",
+    "vue": "^3.2.29"
   },
   "bugs": {
     "url": "https://github.com/flaribbit/vitepress-theme-sakura/issues"
