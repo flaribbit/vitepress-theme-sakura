@@ -40,8 +40,9 @@ export default defineConfigWithTheme<ThemeConfig>({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
   ],
   markdown: {
+    theme: 'github-light',
     lineNumbers: true,
-    config: md => { md.use(fixKatex) }
+    config: md => { md.use(fixKatex) },
   },
   themeConfig: {
     // ...
@@ -84,6 +85,40 @@ export interface ThemeConfig {
   social?: { icon: string, url: string }[], // 联系方式
   waline?: string, // waline 评论系统服务端地址
 }
+```
+
+代码块主题配置，参见 [shiki 主题](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes)
+```ts
+export type Theme =
+  | 'css-variables'
+  | 'dark-plus'
+  | 'dracula-soft'
+  | 'dracula'
+  | 'github-dark-dimmed'
+  | 'github-dark'
+  | 'github-light'
+  | 'hc_light'
+  | 'light-plus'
+  | 'material-darker'
+  | 'material-default'
+  | 'material-lighter'
+  | 'material-ocean'
+  | 'material-palenight'
+  | 'min-dark'
+  | 'min-light'
+  | 'monokai'
+  | 'nord'
+  | 'one-dark-pro'
+  | 'poimandres'
+  | 'rose-pine-dawn'
+  | 'rose-pine-moon'
+  | 'rose-pine'
+  | 'slack-dark'
+  | 'slack-ochin'
+  | 'solarized-dark'
+  | 'solarized-light'
+  | 'vitesse-dark'
+  | 'vitesse-light'
 ```
 
 ## 文章配置

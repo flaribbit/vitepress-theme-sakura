@@ -25,6 +25,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
   ],
   markdown: {
+    theme: 'github-light',
     lineNumbers: true,
     config: md => {
       md.use(fixKatex)

@@ -24,7 +24,7 @@ const cache = new Map()
 
 function getPost(md, file, postDir, asFeed = false) {
   const fullePath = path.join(postDir, file)
-  const timestamp = fs.statSync(fullePath).mtimeMs | 0
+  const timestamp = Math.floor(fs.statSync(fullePath).mtimeMs)
 
   const cached = cache.get(fullePath)
   if (cached && timestamp === cached.timestamp) {
