@@ -326,7 +326,7 @@ div[class*="language-"] {
 
   button.copy {
     position: absolute;
-    top: 42px;
+    top: 8px;
     right: 8px;
     justify-content: center;
     align-items: center;
@@ -337,12 +337,17 @@ div[class*="language-"] {
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 4px;
+    opacity: 0;
     border: 1px solid var(--color-border);
+  }
+
+  &:hover button.copy {
+    opacity: 1;
   }
 
   .lang {
     position: absolute;
-    transform: translate(50%, -28px);
+    transform: translate(-50%, -28px);
     left: 50%;
     user-select: none;
   }
@@ -388,76 +393,4 @@ div[class*="language-"] {
   color: var(--color-gray);
   user-select: none;
 }
-
-// .line-numbers-wrapper {
-//   position: absolute;
-//   left: 0;
-//   top: 32px;
-//   width: 3em;
-//   text-align: center;
-//   color: #888;
-//   background-color: white;
-//   border-top: 1px solid var(--color-border);
-//   user-select: none;
-// }
-
-// div[class*="language-"] {
-//   position: relative;
-//   line-height: var(--code-line-height);
-//   font-size: var(--code-font-size);
-//   font-family: var(--code-font-family);
-//   padding-top: 32px;
-//   margin: 1em 0;
-//   background-color: #f6f8fa;
-//   border-radius: 8px;
-//   border: 1px solid var(--color-border);
-//   overflow: hidden;
-
-//   pre {
-//     border-top: 1px solid var(--color-border);
-//     padding-left: 3em;
-//     margin: 0;
-//     // background-color: #f3f4f4;
-//     background-color: white;
-//     overflow-x: scroll;
-
-//     &:before {
-//       content: "";
-//       position: absolute;
-//       top: 10px;
-//       left: 12px;
-//       width: 12px;
-//       height: 12px;
-//       border-radius: 50%;
-//       background: #fc625d;
-//       box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-//     }
-//   }
-
-//   &:before {
-//     position: absolute;
-//     top: 4px;
-//     width: 100%;
-//     text-align: center;
-//     font-size: 1em;
-//     color: var(--color-gray);
-//   }
-
-//   code {
-//     padding: 0;
-//     background-color: transparent;
-//   }
-// }
-
-// .line-numbers-wrapper {
-//   position: absolute;
-//   left: 0;
-//   top: 32px;
-//   width: 3em;
-//   text-align: center;
-//   color: #888;
-//   background-color: white;
-//   border-top: 1px solid var(--color-border);
-//   user-select: none;
-// }
 </style>
