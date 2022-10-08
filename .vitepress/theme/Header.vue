@@ -2,7 +2,6 @@
   <header>
     <span class="brand"></span>
     <span class="container">
-      <span class="nav"></span>
       <span class="menu">
         <ul>
           <li v-for="m in menu">
@@ -16,10 +15,10 @@
         </ul>
       </span>
     </span>
-    <span>
-      <span class="search">
+    <span class="other">
+      <a class="search">
         <i class="fa fa-search"></i>
-      </span>
+      </a>
     </span>
   </header>
 </template>
@@ -46,20 +45,40 @@ header {
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.9);
   z-index: 100;
-}
-.menu {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+
+  .brand {
+    justify-self: left;
+    padding-left: 8px;
   }
-  li {
-    margin: 0 12px;
-    display: inline;
+
+  .container {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
   }
+
+  .other {
+    justify-self: right;
+    padding-right: 8px;
+  }
+
+  .menu {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin: 0 12px;
+      display: inline;
+    }
+  }
+
   a {
     color: var(--color-gray);
     transition: color 0.2s ease-out;
+
     &:hover {
       color: var(--color-accent);
     }
