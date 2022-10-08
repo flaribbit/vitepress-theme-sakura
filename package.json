@@ -6,7 +6,7 @@
     "lib:build": "node ./build"
   },
   "name": "vitepress-theme-sakura",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "vitepress-theme-sakura",
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
