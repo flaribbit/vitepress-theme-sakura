@@ -1,8 +1,8 @@
-const fs = require('fs')
-const path = require('path')
-const { Feed } = require('feed')
-const { load } = require('./posts.data')
-const { resolveSiteData } = require('vitepress')
+import fs from 'node:fs'
+import path from 'node:path'
+import { Feed } from 'feed'
+import { load } from './posts.data'
+import { resolveSiteData } from 'vitepress'
 const url = `https://blog.vuejs.org`
 
 genFeed()
