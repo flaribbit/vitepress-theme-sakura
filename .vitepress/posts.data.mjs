@@ -1,12 +1,12 @@
 // from https://github.com/vuejs/blog
-const fs = require('fs')
-const path = require('path')
-const matter = require('gray-matter')
-const { createMarkdownRenderer } = require('vitepress')
+import fs from 'node:fs'
+import path from 'node:path'
+import matter from 'gray-matter'
+import { createMarkdownRenderer } from 'vitepress'
 
 const cwd = process.cwd()
 
-module.exports = {
+export default {
   watch: path.relative(__dirname, cwd + '/posts/*.md').replace(/\\/g, '/'),
   async load(asFeed = false) {
     const md = await createMarkdownRenderer(cwd)

@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { Feed } from 'feed'
-import { load } from './posts.data'
+import { load } from './posts.data.mjs'
 import { resolveSiteData } from 'vitepress'
 const url = `https://blog.vuejs.org`
 
