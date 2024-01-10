@@ -4,22 +4,14 @@
   "description": "vitepress-theme-sakura",
   "type": "module",
   "main": ".vitepress/theme/Layout.vue",
+  "author": "flaribbit",
+  "license": "ISC",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build && node .vitepress/genFeed.mjs",
     "serve": "vitepress serve",
     "lib:build": "node ./build"
   },
-  "repository": {
-    "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
-  },
-  "keywords": [
-    "vitepress",
-    "theme",
-    "sakura"
-  ],
-  "author": "flaribbit",
-  "license": "ISC",
   "dependencies": {
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3"
@@ -34,10 +26,18 @@
     "vitepress": "^1.0.0-alpha.10",
     "vue": "^3.2.37"
   },
+  "repository": {
+    "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
+  },
   "bugs": {
     "url": "https://github.com/flaribbit/vitepress-theme-sakura/issues"
   },
   "homepage": "https://github.com/flaribbit/vitepress-theme-sakura#readme",
+  "keywords": [
+    "vitepress",
+    "theme",
+    "sakura"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
