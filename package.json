@@ -1,17 +1,18 @@
 {
+  "name": "vitepress-theme-sakura",
+  "version": "0.4.2",
+  "description": "vitepress-theme-sakura",
+  "type": "module",
+  "main": ".vitepress/theme/Layout.vue",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build && node .vitepress/genFeed.mjs",
     "serve": "vitepress serve",
     "lib:build": "node ./build"
   },
-  "name": "vitepress-theme-sakura",
-  "version": "0.4.2",
-  "description": "vitepress-theme-sakura",
   "repository": {
     "url": "git+https://github.com/flaribbit/vitepress-theme-sakura.git"
   },
-  "main": ".vitepress/theme/Layout.vue",
   "keywords": [
     "vitepress",
     "theme",
