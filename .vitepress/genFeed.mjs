@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { Feed } from 'feed'
-import { load } from './posts.data.mjs'
+import postsData from './posts.data.mjs'
 import { resolveSiteData } from 'vitepress'
 const url = `https://blog.vuejs.org`
 
@@ -9,7 +9,7 @@ genFeed()
 
 async function genFeed() {
   const siteData = await resolveSiteData('.')
-  const posts = await load(true)
+  const posts = await postsData.load(true)
   const cwd = process.cwd()
   const feed = new Feed({
     title: siteData.title,
