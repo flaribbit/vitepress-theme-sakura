@@ -2,8 +2,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import { fileURLToPath } from 'url';
 import { createMarkdownRenderer } from 'vitepress'
 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const cwd = process.cwd()
 
 export default {
