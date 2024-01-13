@@ -10,7 +10,8 @@
     "dev": "vitepress dev",
     "build": "vitepress build && node .vitepress/genFeed.mjs",
     "serve": "vitepress serve",
-    "lib:build": "node ./build"
+    "lib:build": "node ./build",
+    "preview": "vitepress serve"
   },
   "dependencies": {
     "feed": "^4.2.2",
