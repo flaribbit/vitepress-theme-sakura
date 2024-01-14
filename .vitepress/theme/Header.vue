@@ -3,7 +3,7 @@
     <div class="site-branding">
       <span class="site-title">
         <span class="logolink moe-mashiro">
-          <a href="/">
+          <a :href="base ? base : '/'">
             <span class="sakurasono">vitepressの</span>
             <span class="shironeko">sakura</span>
           </a>
