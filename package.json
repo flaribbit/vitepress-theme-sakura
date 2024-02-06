@@ -1,6 +1,6 @@
 {
   "name": "vitepress-theme-sakura",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "vitepress-theme-sakura",
   "type": "module",
   "main": ".vitepress/theme/Layout.vue",
