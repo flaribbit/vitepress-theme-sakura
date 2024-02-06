@@ -42,7 +42,7 @@
   "files": [
     ".vitepress/fix-katex.js",
     ".vitepress/genFeed.mjs",
-    ".vitepress/posts.data.js",
+    ".vitepress/posts.data.mjs",
     ".vitepress/theme"
   ]
 }
